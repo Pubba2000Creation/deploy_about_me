@@ -1,5 +1,5 @@
-import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
+import { CONTACT } from "../constants";
 
 const Contact = () => {
   return (
@@ -36,7 +36,7 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           whileHover={{ scale: 2 }}
           whileTap={{ scale: 2 }}
-          href="#"
+          href="mailto:prabashanapubaudu@gmail.com"
           className="border-b inline-block"
         >
           {CONTACT.email}

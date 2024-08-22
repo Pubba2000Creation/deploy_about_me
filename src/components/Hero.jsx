@@ -1,6 +1,6 @@
-import {HERO_CONTENT} from "../constants";
-import profilepic from "../assets/profiletwo.jpeg"
 import { motion } from "framer-motion";
+import profilepic from "../assets/profiletwo.jpeg";
+import { HERO_CONTENT } from "../constants";
 
 //function for adding animation
 const container=(delay)=>({

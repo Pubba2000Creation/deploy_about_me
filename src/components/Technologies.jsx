@@ -1,12 +1,10 @@
 // src/components/Technologies.jsx
-import {RiReactjsLine} from "react-icons/ri";
-import { DiMongodb } from "react-icons/di";
-import { FaPhp } from "react-icons/fa";
-import { DiNodejs } from "react-icons/di";
-import { DiJsBadge } from "react-icons/di";
-import { FaLaravel } from "react-icons/fa6";
-import { SiNestjs } from "react-icons/si";
 import { motion } from "framer-motion";
+import { DiJsBadge, DiMongodb, DiNodejs } from "react-icons/di";
+import { FaPhp } from "react-icons/fa";
+import { FaLaravel } from "react-icons/fa6";
+import { RiReactjsLine } from "react-icons/ri";
+import { SiNestjs } from "react-icons/si";
 
 
 // Function for animating the technologies icons
@@ -72,7 +70,7 @@ const Technologies = () => {
               variants={iconVariants(2)}
               initial="initial"
               animate="animate"
-              className="rounded-2xl border-4 border-neutral-100 p-4">
+              className="rounded-2xl border-4 border-neutral-800 p-4">
             <DiNodejs  className="text-7xl text-green-500 "/>
 
           </motion.div>
@@ -90,7 +88,7 @@ const Technologies = () => {
               variants={iconVariants(4.5)}
               initial="initial"
               animate="animate"
-              className="rounded-2xl border-4 border-neutral-300 p-4">
+              className="rounded-2xl border-4 border-neutral-800 p-4">
             <FaLaravel  className="text-7xl text-red-700"/>
 
           </motion.div>
