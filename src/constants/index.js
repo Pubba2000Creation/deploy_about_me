@@ -6,11 +6,24 @@ import todo_app from "../assets/projects/todo_app.png";
 import port_folio from "../assets/projects/port-folio.png";
 
 export const HERO_CONTENT = 
-`I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PHP, JavaScript, and MongoDB. I am also proficient in API development using Nest.js and have experience with Laravel. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+  `
+I am a backend-focused full-stack software engineer with a strong passion for designing scalable, production-grade systems. My core strength lies in building robust APIs, backend services, and system architectures that are reliable, secure, and easy to maintain. I primarily work with NestJS, Node.js, TypeScript, MongoDB, MySQL, and Docker to deliver high-performance applications that can scale with real-world usage.
 
-export const ABOUT_TEXT = `I am a dedicated, versatile full-stack developer passionate about creating efficient, user-friendly web applications. I have worked with a range of technologies, including React, Next.js, Node.js, MySQL, PHP, Nest.js, and MongoDB. Additionally, I have experience working with Laravel. My journey in web development began with a deep curiosity about how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges.
+Beyond backend engineering, I have hands-on experience across full-stack development, DevOps workflows, and cloud-based deployments. I actively work with CI/CD pipelines, containerized environments, and Linux-based servers to take applications from development to production with confidence and stability.
 
-I hold a degree in Software Engineering and have a strong affinity for backend development, particularly in developing APIs and working with databases. 
+I also work with AI-driven and computer-vision–based systems, integrating machine learning models into backend services for real-world problem solving. My experience includes building end-to-end pipelines where AI models, APIs, databases, and infrastructure work together seamlessly.
+
+I focus on writing clean, well-structured code, designing thoughtful system flows, and continuously improving performance and reliability. I enjoy solving complex engineering challenges and building systems that are practical, scalable, and ready for real-world deployment.
+`;
+
+export const ABOUT_TEXT = `
+I am a dedicated and versatile software engineer with a strong focus on backend development, system architecture, and scalable application design. My core expertise lies in building RESTful APIs, backend services, and data-driven systems using NestJS, Node.js, TypeScript, MongoDB, MySQL, and PostgreSQL, with solid experience in Docker-based deployments and CI/CD pipelines.
+
+Alongside backend engineering, I have worked across full-stack environments using React, Next.js, PHP, Laravel, and Electron, enabling me to understand complete application lifecycles from frontend interaction to backend processing and infrastructure. I am comfortable working in monorepo architectures, microservice-ready designs, and offline-first systems.
+
+I also have hands-on experience in computer vision and AI-driven projects, working with OpenCV, CNN-based models, ResNet-50, YOLO, and ML pipelines for real-world image analysis and automation tasks. This allows me to bridge the gap between machine-learning models and production-grade backend systems.
+
+My engineering journey is driven by curiosity, continuous learning, and a strong interest in building reliable systems that scale. I enjoy solving complex technical problems, optimizing performance, and deploying applications that are secure, maintainable, and impactful in real-world environments.
 `;
 
 export const EXPERIENCES = [
