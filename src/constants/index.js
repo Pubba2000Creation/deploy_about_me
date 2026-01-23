@@ -16,15 +16,24 @@ I also work with AI-driven and computer-vision–based systems, integrating mach
 I focus on writing clean, well-structured code, designing thoughtful system flows, and continuously improving performance and reliability. I enjoy solving complex engineering challenges and building systems that are practical, scalable, and ready for real-world deployment.
 `;
 
-export const ABOUT_TEXT = `
-I am a dedicated and versatile software engineer with a strong focus on backend development, system architecture, and scalable application design. My core expertise lies in building RESTful APIs, backend services, and data-driven systems using NestJS, Node.js, TypeScript, MongoDB, MySQL, and PostgreSQL, with solid experience in Docker-based deployments and CI/CD pipelines.
-
-Alongside backend engineering, I have worked across full-stack environments using React, Next.js, PHP, Laravel, and Electron, enabling me to understand complete application lifecycles from frontend interaction to backend processing and infrastructure. I am comfortable working in monorepo architectures, microservice-ready designs, and offline-first systems.
-
-I also have hands-on experience in computer vision and AI-driven projects, working with OpenCV, CNN-based models, ResNet-50, YOLO, and ML pipelines for real-world image analysis and automation tasks. This allows me to bridge the gap between machine-learning models and production-grade backend systems.
-
-My engineering journey is driven by curiosity, continuous learning, and a strong interest in building reliable systems that scale. I enjoy solving complex technical problems, optimizing performance, and deploying applications that are secure, maintainable, and impactful in real-world environments.
-`;
+export const ABOUT_TEXT = {
+  summary: "I am a dedicated software engineer specializing in backend architecture, AI systems, and scalable full-stack applications. My work focuses on building robust, production-grade solutions that bridge the gap between complex backend logic and seamless user experiences.",
+  pillars: [
+    {
+      title: "The Backend Architect",
+      description: "Expertise in NestJS, Node.js, and TypeScript. Designing scalable microservices, RESTful APIs, and robust data schemas with MongoDB, MySQL, and PostgreSQL."
+    },
+    {
+      title: "The AI Systems Explorer",
+      description: "Integrating LLMs, RAG, and Computer Vision (OpenCV/YOLO) into production pipelines. Bridging machine learning models with scalable backend infrastructure."
+    },
+    {
+      title: "The Visionary Full-Stack",
+      description: "Crafting modern interfaces with React and Next.js, while maintaining deep control over DevOps, CI/CD, and containerized deployments with Docker."
+    }
+  ],
+  fullBio: "My engineering journey is driven by a deep curiosity for how complex systems interact. Beyond just writing code, I focus on the entire lifecycle—from architecting secure and maintainable database schemas to deploying containerized applications on Linux-based servers and cloud platforms like AWS and DigitalOcean. \n\nI thrive on solving technical challenges that require a blend of logical backend thinking and creative problem-solving, particularly in the fields of AI-driven automation and offline-first systems. I am committed to continuous learning and building technology that is not only functional but also secure and highly scalable for real-world impact."
+};
 
 export const EXPERIENCES = [
   {
