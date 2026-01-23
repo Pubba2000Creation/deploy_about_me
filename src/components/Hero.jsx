@@ -25,7 +25,7 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-16 lg:mb-36 pt-10 px-4 sm:px-8">
+    <div className="border-b border-neutral-900 pb-16 lg:mb-36 pt-2 px-4 sm:px-8">
       <div className="flex flex-wrap items-center">
         {/* Text Content */}
         <div className="w-full lg:w-3/5">

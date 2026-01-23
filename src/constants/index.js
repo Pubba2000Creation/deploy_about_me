@@ -5,7 +5,7 @@ import project4 from "../assets/projects/project-4.jpg";
 import todo_app from "../assets/projects/todo_app.png";
 import port_folio from "../assets/projects/port-folio.png";
 
-export const HERO_CONTENT = 
+export const HERO_CONTENT =
   `
 I am a backend-focused full-stack software engineer with a strong passion for designing scalable, production-grade systems. My core strength lies in building robust APIs, backend services, and system architectures that are reliable, secure, and easy to maintain. I primarily work with NestJS, Node.js, TypeScript, MongoDB, MySQL, and Docker to deliver high-performance applications that can scale with real-world usage.
 
@@ -32,7 +32,7 @@ export const EXPERIENCES = [
     role: "Backend Developer",
     company: "Infact Solutions (PVT) Ltd.",
     description: `Developing and maintaining web applications using JavaScript, React.js, and Nest.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Node.js","Nest.js", "mongoDB"],
+    technologies: ["Javascript", "React.js", "Node.js", "Nest.js", "mongoDB"],
   },
   {
     year: "2022 - 2023",
@@ -42,9 +42,9 @@ export const EXPERIENCES = [
      Worked closely with backend developers to integrate frontend components Laravel APIs. 
      Implemented responsive designs and optimized frontend performance.
 `,
-    technologies: ["HTML", "CSS", "php", "mySQL","Laravel"],
+    technologies: ["HTML", "CSS", "php", "mySQL", "Laravel"],
   },
- 
+
 ];
 
 export const PROJECTS = [
@@ -80,13 +80,22 @@ export const PROJECTS = [
     description: "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["Nest framework", "express", "JavaScript", "node"],
   },
-  
+
   {
     title: "Pharmacy-system",
     image: project4,
     description:
       " A comprehensive platform for managing and selling pharmacy products both online and in physical stores. The application facilitates inventory management, online sales, and seamless integration with the physical shop's operations. .",
     technologies: ["HTML", "CSS", "Php", "mySQL"],
+  },
+];
+
+export const RESEARCH = [
+  {
+    title: "AI-Driven Backend Scalability in Microservices",
+    description: "A comprehensive research project exploring the integration of machine learning models for dynamic resource allocation and load balancing in NestJS-based microservice architectures. The study focuses on predictive scaling and reducing latency in high-traffic production environments.",
+    link: "#", // Placeholder for PDF link
+    technologies: ["AI Systems", "NestJS", "Microservices", "Python"],
   },
 ];
 
