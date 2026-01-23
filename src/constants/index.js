@@ -37,7 +37,31 @@ export const ABOUT_TEXT = {
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
+    year: "2024 - Present",
+    role: "Freelance Backend / Full-Stack Engineer",
+    company: "Independent",
+    description: `Working as an independent software engineer delivering complete, production-ready solutions for clients. Responsible for system design, backend architecture, API development, database modeling, deployment, and project coordination.
+
+Key Projects:
+• CakeHub Web System – Designed and developed backend architecture, REST APIs, authentication flows, role-based access control, and integrations including Google Maps, Amazon S3, and WebSockets.
+• E-Garage Web & Mobile Backend – Developed backend services, APIs, database schemas, and system logic supporting web and mobile applications.
+
+Handled client communication, technical decision-making, delivery timelines, and deployment responsibilities.`,
+    technologies: [
+      "NestJS",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Docker",
+      "AWS S3",
+      "WebSockets",
+      "REST APIs",
+      "JWT",
+      "DigitalOcean"
+    ],
+  },
+  {
+    year: "2023 - 2024",
     role: "Backend Developer",
     company: "Infact Solutions (PVT) Ltd.",
     description: `Developing and maintaining web applications using JavaScript, React.js, and Nest.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
