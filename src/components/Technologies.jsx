@@ -23,16 +23,23 @@ import {
   SiAmazonaws,
   SiDigitalocean,
   SiLinux,
-  SiJavascript
+  SiJavascript,
+  SiGooglegemini,
+  SiOpenai,
+  SiWeb3Dotjs,
+  SiEthereum,
+  SiSolidity
 } from "react-icons/si";
 import {
   FaPhp,
   FaLaravel,
   FaGitAlt,
-  FaNodeJs
+  FaNodeJs,
+  FaRobot
 } from "react-icons/fa";
-import { TbApi } from "react-icons/tb";
+import { TbApi, TbDatabaseSearch, TbHierarchy } from "react-icons/tb";
 import { AiOutlineScan } from "react-icons/ai";
+import { GiBrain } from "react-icons/gi";
 
 const iconVariants = (duration) => ({
   initial: { y: -10 },
@@ -69,7 +76,7 @@ TechIcon.propTypes = {
 
 const TechCategory = ({ title, children }) => (
   <div className="mb-12">
-    <h3 className="text-xl font-medium text-neutral-300 mb-6 text-center lg:text-left border-l-4 border-purple-500 pl-4">
+    <h3 className="text-xl font-medium text-neutral-300 mb-6 text-center lg:text-left border-l-4 border-purple-500 pl-4 uppercase tracking-wider text-xs">
       {title}
     </h3>
     <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
@@ -92,7 +99,7 @@ const Technologies = () => {
         transition={{ duration: 1 }}
         className="my-20 text-4xl text-center text-white font-thin tracking-tight"
       >
-        Technologies & Tools
+        Technologies & Specialized Expertise
       </motion.h1>
 
       <div className="max-w-7xl mx-auto">
@@ -113,12 +120,14 @@ const Technologies = () => {
           <TechIcon Icon={SiRedis} name="Redis" color="text-red-500" duration={4.8} />
         </TechCategory>
 
-        {/* Frontend / Desktop */}
-        <TechCategory title="Frontend / Desktop">
-          <TechIcon Icon={RiReactjsLine} name="React" color="text-cyan-400" duration={2.5} />
-          <TechIcon Icon={SiNextdotjs} name="Next.js" color="text-white" duration={3} />
-          <TechIcon Icon={SiJavascript} name="JavaScript" color="text-yellow-400" duration={3.5} />
-          <TechIcon Icon={SiElectron} name="Electron" color="text-cyan-300" duration={4} />
+        {/* AI Agents & LLM Integration */}
+        <TechCategory title="AI Agents & LLM Integration">
+          <TechIcon Icon={SiGooglegemini} name="Gemini" color="text-blue-400" duration={2} />
+          <TechIcon Icon={SiOpenai} name="OpenAI" color="text-emerald-500" duration={2.5} />
+          <TechIcon Icon={FaRobot} name="Ollama" color="text-gray-300" duration={3} />
+          <TechIcon Icon={TbHierarchy} name="LangChain" color="text-emerald-600" duration={3.5} />
+          <TechIcon Icon={TbDatabaseSearch} name="Vector DB" color="text-orange-400" duration={4} />
+          <TechIcon Icon={GiBrain} name="RAG / LLM" color="text-purple-400" duration={4.5} />
         </TechCategory>
 
         {/* AI / ML */}
@@ -128,6 +137,21 @@ const Technologies = () => {
           <TechIcon Icon={SiTensorflow} name="TensorFlow" color="text-orange-500" duration={3} />
           <TechIcon Icon={SiPytorch} name="PyTorch" color="text-red-500" duration={3.5} />
           <TechIcon Icon={AiOutlineScan} name="YOLO" color="text-yellow-400" duration={4} />
+        </TechCategory>
+
+        {/* Frontend / Desktop */}
+        <TechCategory title="Frontend / Desktop">
+          <TechIcon Icon={RiReactjsLine} name="React" color="text-cyan-400" duration={2.5} />
+          <TechIcon Icon={SiNextdotjs} name="Next.js" color="text-white" duration={3} />
+          <TechIcon Icon={SiJavascript} name="JavaScript" color="text-yellow-400" duration={3.5} />
+          <TechIcon Icon={SiElectron} name="Electron" color="text-cyan-300" duration={4} />
+        </TechCategory>
+
+        {/* Web3 & Blockchain */}
+        <TechCategory title="Web3 & Blockchain">
+          <TechIcon Icon={SiSolidity} name="Solidity" color="text-gray-400" duration={2.5} />
+          <TechIcon Icon={SiEthereum} name="Ethereum" color="text-blue-400" duration={3} />
+          <TechIcon Icon={SiWeb3Dotjs} name="Web3.js" color="text-orange-500" duration={3.5} />
         </TechCategory>
 
         {/* DevOps / Cloud */}
