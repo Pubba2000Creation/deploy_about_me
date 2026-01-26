@@ -1,42 +1,85 @@
 import { PROJECTS } from "../constants";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const Projects = () => {
     return (
-        <div id="projects" className="text-neutral-100 mt-5 border-b border-neutral-900 pb-4 sm:px-6 lg:px-8">
+        <div id="projects" className="border-b border-neutral-900 pb-20 px-4 sm:px-8">
             <motion.h2
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: -100 }}
+                initial={{ opacity: 0, y: -50 }}
                 transition={{ duration: 1 }}
-                className="my-8 sm:my-10 text-center text-3xl sm:text-4xl text-opacity-90">Projects</motion.h2>
-            <div>
+                className="my-20 text-center text-4xl text-white font-thin tracking-tight"
+            >
+                Featured Projects
+            </motion.h2>
+            <div className="max-w-7xl mx-auto flex flex-col gap-16">
                 {PROJECTS.map((project, index) => (
-                    <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-                        <motion.div
-                            whileInView={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 1 }}
-                            className="w-full lg:w-1/4">
-                            <img src={project.image} alt={project.title} width={150} height={150} />
-                        </motion.div>
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: index * 0.1 }}
+                        className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 group"
+                    >
+                        {/* Image Section */}
+                        <div className="w-full lg:w-1/2 relative">
+                            {/* Glow Effect */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-                        <motion.div
-                            whileInView={{ opacity: 1, x: 0 }}
-                            initial={{ opacity: 0, x: 100 }}
-                            transition={{ duration: 1 }}
-                            className="w-full max-w-xl lg:h-3/4">
-                            <h6 className="mb-2 font-semibold">{project.title}</h6>
-                            <p className="mb-4 text-neutral-400">{project.description}</p>
-                            {project.technologies.map((tech, index) => (
-                                <span key={index} className="mr-2 mb-2 rounded bg-neutral-950 px-2 py-1 text-xs sm:text-sm font-normal text-orange-200">{tech}</span>
-                            ))}
-                        </motion.div>
+                            <div className="relative overflow-hidden rounded-2xl border border-neutral-800">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
+                                />
+                                {/* Overlay on Hover */}
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <Link
+                                        to={`/project/${project.id}`}
+                                        className="bg-white text-black px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-neutral-200"
+                                    >
+                                        View Details
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
 
-                    </div>
+                        {/* Content Section */}
+                        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+                            <h3 className="text-3xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                                {project.title}
+                            </h3>
+                            <p className="mb-6 text-neutral-400 text-lg leading-relaxed max-w-xl">
+                                {project.description}
+                            </p>
+
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
+                                {project.technologies.slice(0, 4).map((tech, i) => (
+                                    <span key={i} className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-900 border border-neutral-800 text-purple-300">
+                                        {tech}
+                                    </span>
+                                ))}
+                                {project.technologies.length > 4 && (
+                                    <span className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-900 border border-neutral-800 text-neutral-500">
+                                        +{project.technologies.length - 4} more
+                                    </span>
+                                )}
+                            </div>
+
+                            <Link
+                                to={`/project/${project.id}`}
+                                className="inline-flex items-center gap-2 text-white border-b border-purple-500 pb-1 hover:text-purple-400 transition-colors text-lg tracking-wide group/link"
+                            >
+                                Read Case Study
+                                <FaArrowRight className="text-sm transform group-hover/link:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </motion.div>
                 ))}
             </div>
         </div>
-    )
-}
-
-export default Projects
+    );
+};
+export default Projects;
