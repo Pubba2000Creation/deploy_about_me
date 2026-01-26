@@ -28,7 +28,8 @@ import {
   SiOpenai,
   SiWeb3Dotjs,
   SiEthereum,
-  SiSolidity
+  SiSolidity,
+  SiKubernetes
 } from "react-icons/si";
 import {
   FaPhp,
@@ -110,8 +111,7 @@ const Technologies = () => {
           <TechIcon Icon={FaLaravel} name="Laravel" color="text-red-600" duration={3} />
           <TechIcon Icon={SiNestjs} name="NestJS" color="text-red-500" duration={3.5} />
           <TechIcon Icon={FaPhp} name="PHP" color="text-blue-400" duration={4} />
-          <TechIcon Icon={SiDocker} name="Docker" color="text-blue-400" duration={4.5} />
-          <TechIcon Icon={SiLinux} name="Linux" color="text-white" duration={5} />
+          <TechIcon Icon={SiLinux} name="Linux" color="text-white" duration={4.5} />
           <TechIcon Icon={FaGitAlt} name="Git" color="text-orange-500" duration={2.2} />
           <TechIcon Icon={TbApi} name="REST API" color="text-emerald-400" duration={2.8} />
           <TechIcon Icon={SiPostgresql} name="PostgreSQL" color="text-blue-300" duration={3.2} />
@@ -157,9 +157,11 @@ const Technologies = () => {
         {/* DevOps / Cloud */}
         <TechCategory title="DevOps / Cloud">
           <TechIcon Icon={SiGithubactions} name="CI/CD" color="text-blue-500" duration={4} />
-          <TechIcon Icon={SiNginx} name="Nginx" color="text-green-500" duration={4.5} />
-          <TechIcon Icon={SiAmazonaws} name="AWS" color="text-orange-400" duration={5} />
-          <TechIcon Icon={SiDigitalocean} name="DigitalOcean" color="text-blue-500" duration={5.5} />
+          <TechIcon Icon={SiDocker} name="Docker" color="text-blue-400" duration={4.5} />
+          <TechIcon Icon={SiKubernetes} name="Kubernetes" color="text-blue-600" duration={4.8} />
+          <TechIcon Icon={SiNginx} name="Nginx" color="text-green-500" duration={5} />
+          <TechIcon Icon={SiAmazonaws} name="AWS" color="text-orange-400" duration={5.5} />
+          <TechIcon Icon={SiDigitalocean} name="DigitalOcean" color="text-blue-500" duration={6} />
         </TechCategory>
       </div>
     </div>

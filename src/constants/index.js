@@ -9,7 +9,7 @@ export const HERO_CONTENT =
   `
 I am a backend-focused full-stack software engineer with a strong passion for designing scalable, production-grade systems. My core strength lies in building robust APIs, backend services, and system architectures that are reliable, secure, and easy to maintain. I primarily work with NestJS, Node.js, TypeScript, MongoDB, MySQL, and Docker to deliver high-performance applications that can scale with real-world usage.
 
-Beyond backend engineering, I have hands-on experience across full-stack development, DevOps workflows, and cloud-based deployments. I actively work with CI/CD pipelines, containerized environments, and Linux-based servers to take applications from development to production with confidence and stability.
+Beyond backend engineering, I have hands-on experience across full-stack development, DevOps workflows, and cloud-based deployments. I actively work with CI/CD pipelines, containerized environments (Docker & Kubernetes), and Linux-based servers to take applications from development to production with confidence and stability.
 
 I also work with AI-driven and computer-vision–based systems, integrating machine learning models into backend services for real-world problem solving. My experience includes building end-to-end pipelines where AI models, APIs, databases, and infrastructure work together seamlessly.
 
@@ -29,7 +29,7 @@ export const ABOUT_TEXT = {
     },
     {
       title: "The Visionary Full-Stack",
-      description: "Crafting modern interfaces with React and Next.js, while maintaining deep control over DevOps, CI/CD, and containerized deployments with Docker."
+      description: "Crafting modern interfaces with React and Next.js, while maintaining deep control over DevOps, CI/CD, and container orchestration with Docker and Kubernetes."
     }
   ],
   fullBio: "My engineering journey is driven by a deep curiosity for how complex systems interact. Beyond just writing code, I focus on the entire lifecycle—from architecting secure and maintainable database schemas to deploying containerized applications on Linux-based servers and cloud platforms like AWS and DigitalOcean. \n\nI thrive on solving technical challenges that require a blend of logical backend thinking and creative problem-solving, particularly in the fields of AI-driven automation and offline-first systems. I am committed to continuous learning and building technology that is not only functional but also secure and highly scalable for real-world impact."
@@ -57,7 +57,8 @@ Handled client communication, technical decision-making, delivery timelines, and
       "WebSockets",
       "REST APIs",
       "JWT",
-      "DigitalOcean"
+      "DigitalOcean",
+      "Kubernetes"
     ],
   },
   {
