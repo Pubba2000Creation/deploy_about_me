@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import { motion } from "framer-motion";
-import profilepic from "../assets/profiletwo.jpg";
+import profilepic from "../assets/professionl.png";
 import { HERO_CONTENT } from "../constants";
 
 const containerVariants = {

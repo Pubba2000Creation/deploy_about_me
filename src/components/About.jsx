@@ -1,6 +1,7 @@
 // src/components/About.jsx
 import { useState } from "react";
 import aboutimg from "../assets/profileone.jpg";
+import worksimg from "../assets/pubba-works.png";
 import { ABOUT_TEXT } from "../constants";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,7 +9,7 @@ const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div id="about" className="border-b border-neutral-900 pb-20 pt-12">
+    <div id="about" className="border-b border-neutral-900 pb-10 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
@@ -26,15 +27,28 @@ const About = () => {
           transition={{ duration: 1 }}
           className="w-full lg:w-1/3 flex flex-col items-center mb-12 lg:mb-0"
         >
-          <div className="relative group mb-8">
-            <img
-              src={aboutimg}
-              alt="Prabod Pubudu"
-              className="rounded-3xl shadow-2xl w-64 lg:w-80 border-2 border-neutral-800 transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute -inset-4 bg-purple-500/10 blur-2xl -z-10 rounded-full"></div>
+          <div className="relative group mb-8 flex flex-col gap-4">
+            {/* Main Image (Works) */}
+            <div className="relative z-10 transform translate-x-4">
+              <img
+                src={worksimg}
+                alt="Prabod Pubudu"
+                className="rounded-3xl shadow-2xl w-60 lg:w-72 border-2 border-neutral-800 transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute -inset-4 bg-purple-500/20 blur-2xl -z-10 rounded-full"></div>
+            </div>
+
+            {/* Secondary Image (Profile) - Overlapping */}
+            <div className="relative z-20 self-end -mt-16 lg:-mt-24 -mr-4">
+              <img
+                src={aboutimg}
+                alt="Pubba Works"
+                className="rounded-3xl shadow-2xl w-40 lg:w-52 border-2 border-neutral-800 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
+              />
+              <div className="absolute -inset-4 bg-blue-500/20 blur-xl -z-10 rounded-full"></div>
+            </div>
           </div>
-          <p className="text-neutral-400 text-center text-sm lg:text-base max-w-sm leading-relaxed font-light italic">
+          <p className="text-neutral-400 text-center text-sm lg:text-base max-w-sm leading-relaxed font-light italic mt-4">
             &quot;{ABOUT_TEXT.summary}&quot;
           </p>
         </motion.div>
