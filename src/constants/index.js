@@ -81,6 +81,22 @@ Handled client communication, technical decision-making, delivery timelines, and
 
 export const PROJECTS = [
   {
+    id: "ecommerce",
+    title: "E-Commerce Platform",
+    image: ecommerceImg,
+    description: "A scalable e-commerce architecture supporting high-volume transactions, inventory management, and secure payments.",
+    fullDescription: "This project is a full-featured e-commerce platform built for scalability and performance. It includes a microservices-ready backend, a responsive storefront, and a comprehensive admin dashboard. The system supports complex product variants, real-time inventory checks, and diverse payment gateway integrations, ensuring a seamless shopping experience.",
+    features: [
+      "Product Management: Support for variants, categories, and tags.",
+      "Cart & Checkout: Optimized checkout flow with guest options.",
+      "Secure Payments: Integration with Stripe and PayPal.",
+      "Order History: User dashboard for tracking past orders.",
+      "Admin Analytics: Sales reports and user behavior insights."
+    ],
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API"],
+    role: "Full Stack Developer"
+  },
+  {
     id: "cakehub",
     title: "CakeHub Web System",
     image: cakehubImg,
@@ -112,23 +128,6 @@ export const PROJECTS = [
     technologies: ["NestJS", "React", "Mobile (Flutter/React Native)", "PostgreSQL", "Docker", "Redis"],
     role: "Backend Architect"
   },
-  {
-    id: "ecommerce",
-    title: "E-Commerce Platform",
-    image: ecommerceImg,
-    description: "A scalable e-commerce architecture supporting high-volume transactions, inventory management, and secure payments.",
-    fullDescription: "This project is a full-featured e-commerce platform built for scalability and performance. It includes a microservices-ready backend, a responsive storefront, and a comprehensive admin dashboard. The system supports complex product variants, real-time inventory checks, and diverse payment gateway integrations, ensuring a seamless shopping experience.",
-    features: [
-      "Product Management: Support for variants, categories, and tags.",
-      "Cart & Checkout: Optimized checkout flow with guest options.",
-      "Secure Payments: Integration with Stripe and PayPal.",
-      "Order History: User dashboard for tracking past orders.",
-      "Admin Analytics: Sales reports and user behavior insights."
-    ],
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API"],
-    role: "Full Stack Developer"
-  },
-
 ];
 
 export const RESEARCH = [
