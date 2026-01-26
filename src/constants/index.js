@@ -1,5 +1,4 @@
-import project2 from "../assets/projects/project-2.jpg";
-import port_folio from "../assets/projects/port-folio.png";
+
 import cakehubImg from "../assets/projects/cakehub/cakehub.png";
 import ecommerceImg from "../assets/projects/ecommrece/webview.png";
 import egarageImg from "../assets/projects/egarge/egarge.png";
@@ -129,36 +128,7 @@ export const PROJECTS = [
     technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API"],
     role: "Full Stack Developer"
   },
-  {
-    id: "portfolio",
-    title: "Portfolio Website",
-    image: port_folio,
-    description: "A personal portfolio website showcasing projects, skills, and contact information.",
-    fullDescription: "My personal digital garden, designed to showcase my journey as a software engineer. Built with modern web technologies to ensure performance and accessibility. It features interactive elements, smooth animations, and a clean, minimalist aesthetic to let the work speak for itself.",
-    features: [
-      "Responsive Design: Optimized for all devices.",
-      "Interactive UI: Framer Motion animations.",
-      "Contact Form: Direct messaging integration.",
-      "Dark Mode: Eye-friendly dark theme."
-    ],
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-    role: "Frontend Developer"
-  },
-  {
-    id: "expense-app",
-    title: "Expense Tracker",
-    image: project2,
-    description: "An API-first application for managing personal finances with detailed tracking and reporting.",
-    fullDescription: "A focused application for tracking personal expenses and income. The backend is designed to handle complex queries for generating financial reports. It provides a RESTful API for frontend consumption, enabling features like category-wise breakdown, monthly limits, and savings goals.",
-    features: [
-      "Transaction Logging: specific types (income/expense).",
-      "Category Management: Custom categories for transactions.",
-      "Reporting: Monthly and yearly financial summaries.",
-      "Secure Auth: JWT-based authentication."
-    ],
-    technologies: ["NestJS", "TypeScript", "PostgreSQL", "Swagger"],
-    role: "Backend Developer"
-  }
+
 ];
 
 export const RESEARCH = [
