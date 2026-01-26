@@ -95,6 +95,70 @@ const ProjectDetails = () => {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Video Section */}
+            {project.video && (
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mt-16 sm:mt-24"
+                >
+                    <h2 className="text-2xl font-semibold text-white mb-8 border-l-4 border-purple-500 pl-4">
+                        Project Demo
+                    </h2>
+                    <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900">
+                        <video
+                            controls
+                            className="w-full h-auto max-h-[70vh]"
+                            poster={project.image}
+                        >
+                            <source src={project.video} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </motion.div>
+            )}
+
+            {/* Documentation Section */}
+            {project.documents && project.documents.length > 0 && (
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mt-16 sm:mt-24 pb-20"
+                >
+                    <h2 className="text-2xl font-semibold text-white mb-8 border-l-4 border-pink-500 pl-4">
+                        Technical Documentation
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {project.documents.map((doc, index) => (
+                            <a
+                                key={index}
+                                href={doc.src}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex flex-col p-6 bg-neutral-900/50 border border-neutral-800 rounded-xl hover:bg-neutral-800 hover:border-purple-500/50 transition-all duration-300"
+                            >
+                                <div className="h-12 w-12 bg-neutral-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                                    <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-lg font-medium text-white mb-2 group-hover:text-purple-300 transition-colors">
+                                    {doc.title}
+                                </h3>
+                                <div className="mt-auto pt-4 flex items-center text-sm text-neutral-400 group-hover:text-white transition-colors">
+                                    <span>View Document</span>
+                                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </motion.div>
+            )}
         </div>
     );
 };

@@ -2,6 +2,10 @@
 import cakehubImg from "../assets/projects/cakehub/cakehub.png";
 import ecommerceImg from "../assets/projects/ecommrece/webview.png";
 import egarageImg from "../assets/projects/egarge/egarge.png";
+import backendDoc from "../assets/projects/ecommrece/backend_doc.pdf";
+import databaseDoc from "../assets/projects/ecommrece/database_doc.pdf";
+import frontendDoc from "../assets/projects/ecommrece/frontend_doc.pdf";
+import overallDoc from "../assets/projects/ecommrece/overall_doc.pdf";
 
 export const HERO_CONTENT =
   `
@@ -94,7 +98,14 @@ export const PROJECTS = [
       "Admin Analytics: Sales reports and user behavior insights."
     ],
     technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API"],
-    role: "Full Stack Developer"
+    role: "Full Stack Developer",
+    video: "https://res.cloudinary.com/djrw4gbk9/video/upload/v1769365216/ecommercevideo_qgiujx.mp4",
+    documents: [
+      { title: "Overall Architecture", src: overallDoc },
+      { title: "Backend Documentation", src: backendDoc },
+      { title: "Frontend Documentation", src: frontendDoc },
+      { title: "Database Schema", src: databaseDoc },
+    ]
   },
   {
     id: "cakehub",
