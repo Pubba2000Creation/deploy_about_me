@@ -3,16 +3,18 @@ import { PROJECTS } from '../constants';
 import { motion } from 'framer-motion';
 import { IoArrowBack, IoEyeSharp } from 'react-icons/io5';
 import useViewCount from '../hooks/useViewCount';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const ProjectDetails = () => {
     const { id } = useParams();
     const project = PROJECTS.find((p) => p.id === id);
     const { views, increment, formatViews } = useViewCount(id || '');
+    const hasIncremented = useRef(false);
 
     useEffect(() => {
-        if (id) {
+        if (id && !hasIncremented.current) {
             increment();
+            hasIncremented.current = true;
         }
     }, [id, increment]);
 
