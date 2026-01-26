@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const useViewCount = (projectId) => {
     const [views, setViews] = useState(0);
@@ -27,12 +27,12 @@ const useViewCount = (projectId) => {
         }
     }, [projectId]);
 
-    const increment = () => {
+    const increment = useCallback(() => {
         const current = parseInt(localStorage.getItem(`views_${projectId}`) || '0', 10);
         const newValue = current + 1;
         setViews(newValue);
         localStorage.setItem(`views_${projectId}`, newValue.toString());
-    };
+    }, [projectId]);
 
     const formatViews = (count) => {
         return new Intl.NumberFormat('en-US', {

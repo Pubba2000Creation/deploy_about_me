@@ -1,11 +1,20 @@
 import { useParams, Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { motion } from 'framer-motion';
-import { IoArrowBack } from 'react-icons/io5';
+import { IoArrowBack, IoEyeSharp } from 'react-icons/io5';
+import useViewCount from '../hooks/useViewCount';
+import { useEffect } from 'react';
 
 const ProjectDetails = () => {
     const { id } = useParams();
     const project = PROJECTS.find((p) => p.id === id);
+    const { views, increment, formatViews } = useViewCount(id || '');
+
+    useEffect(() => {
+        if (id) {
+            increment();
+        }
+    }, [id, increment]);
 
     if (!project) {
         return (
@@ -30,12 +39,23 @@ const ProjectDetails = () => {
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center lg:text-left"
             >
-                <h1 className="text-4xl lg:text-6xl font-thin tracking-tight text-white mb-4">
-                    {project.title}
-                </h1>
-                <p className="text-xl text-neutral-400 max-w-2xl">
-                    <span className="text-purple-500 font-medium">{project.role}</span>
-                </p>
+                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-4">
+                    <div>
+                        <h1 className="text-4xl lg:text-6xl font-thin tracking-tight text-white mb-4">
+                            {project.title}
+                        </h1>
+                        <p className="text-xl text-neutral-400 max-w-2xl">
+                            <span className="text-purple-500 font-medium">{project.role}</span>
+                        </p>
+                    </div>
+
+                    {/* View Count Display */}
+                    <div className="flex items-center gap-2 bg-neutral-900/50 border border-neutral-800 px-4 py-2 rounded-full">
+                        <IoEyeSharp className="text-purple-400 text-lg" />
+                        <span className="text-white font-medium">{formatViews(views)}</span>
+                        <span className="text-neutral-500 text-sm ml-1">Views</span>
+                    </div>
+                </div>
             </motion.div>
 
             {/* Content Grid */}
