@@ -2,29 +2,38 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { CONTACT } from "../constants";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
 
-const ContactInfo = ({ icon: Icon, text, label, subtext }) => (
-  <motion.div
-    whileHover={{ x: 10 }}
-    className="flex items-start gap-6 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm hover:border-purple-500/30 transition-all group"
-  >
-    <div className="p-4 bg-purple-500/10 rounded-xl text-purple-400 group-hover:scale-110 transition-transform">
-      <Icon className="text-2xl" />
-    </div>
-    <div>
-      <p className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-1">{label}</p>
-      <h3 className="text-lg font-light text-neutral-100">{text}</h3>
-      {subtext && <p className="text-xs text-neutral-500 mt-1 font-light">{subtext}</p>}
-    </div>
-  </motion.div>
-);
+const ContactInfo = ({ icon: Icon, text, label, subtext, href }) => {
+  const content = (
+    <motion.div
+      whileHover={{ x: 10 }}
+      className="flex items-start gap-6 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm hover:border-purple-500/30 transition-all group w-full"
+    >
+      <div className="p-4 bg-purple-500/10 rounded-xl text-purple-400 group-hover:scale-110 transition-transform">
+        <Icon className="text-2xl" />
+      </div>
+      <div>
+        <p className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-1">{label}</p>
+        <h3 className="text-lg font-light text-neutral-100">{text}</h3>
+        {subtext && <p className="text-xs text-neutral-500 mt-1 font-light">{subtext}</p>}
+      </div>
+    </motion.div>
+  );
+
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="block w-full">
+      {content}
+    </a>
+  ) : content;
+};
 
 ContactInfo.propTypes = {
   icon: PropTypes.elementType.isRequired,
   text: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   subtext: PropTypes.string,
+  href: PropTypes.string,
 };
 
 const Contact = () => {
@@ -71,19 +80,28 @@ const Contact = () => {
               icon={FaMapMarkerAlt}
               label="Location"
               text={CONTACT.address}
-              subtext="Available for global remote opportunities"
+              subtext="Horana, Western Province, Sri Lanka"
             />
             <ContactInfo
               icon={FaPhoneAlt}
               label="Phone"
               text={CONTACT.phoneNo}
-              subtext="Mon — Fri, 9am — 6pm (IST)"
+              subtext="Click to call"
+              href={`tel:${CONTACT.phoneNo.replace(/\s+/g, '')}`}
+            />
+            <ContactInfo
+              icon={FaWhatsapp}
+              label="WhatsApp"
+              text={CONTACT.whatsapp}
+              subtext="Direct message for quick response"
+              href={`https://wa.me/${CONTACT.whatsapp.replace('+', '')}`}
             />
             <ContactInfo
               icon={FaEnvelope}
               label="Email"
               text={CONTACT.email}
               subtext="Usually responds within 24 hours"
+              href={`mailto:${CONTACT.email}`}
             />
 
             <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/20 mt-10">

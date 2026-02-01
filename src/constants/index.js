@@ -205,5 +205,6 @@ export const RESEARCH = [
 export const CONTACT = {
   address: "Horana, Western Province, Sri lanka",
   phoneNo: "+94 705 140 790",
+  whatsapp: "+94705140790",
   email: "prabashanapubudu@gmail.com",
 };
