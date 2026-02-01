@@ -5,7 +5,7 @@ import ResearchDetails from './pages/ResearchDetails';
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-800 min-h-screen bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-800 min-h-screen bg-[radial-gradient(90%_120%_at_34%_10%,#000000_70%,#020617_60%,#6366f1_120%)]">
       <div className="fixed top-0 -z-10 h-full w-full"></div>
 
       <Router>
