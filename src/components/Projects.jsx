@@ -81,7 +81,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
     return (
-        <div id="projects" className="border-b border-neutral-900 pb-20 px-4 sm:px-8">
+        <div id="projects" className="scroll-mt-24 border-b border-neutral-900 pb-20 px-4 sm:px-8">
             <motion.h2
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}

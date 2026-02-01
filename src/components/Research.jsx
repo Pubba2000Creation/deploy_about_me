@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Research = () => {
     return (
-        <div id="research" className="text-neutral-100 mt-20 border-b border-neutral-900 pb-16 px-4 sm:px-6 lg:px-8">
+        <div id="research" className="scroll-mt-24 text-neutral-100 mt-20 border-b border-neutral-900 pb-16 px-4 sm:px-6 lg:px-8">
             <motion.h2
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}

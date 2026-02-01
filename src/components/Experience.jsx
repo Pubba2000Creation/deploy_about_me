@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div id="experience" className="border-b border-neutral-900 pb-24 px-4 sm:px-6 lg:px-8 pt-12">
+    <div id="experience" className="scroll-mt-24 border-b border-neutral-900 pb-24 px-4 sm:px-6 lg:px-8 pt-12">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}

@@ -9,7 +9,7 @@ const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div id="about" className="border-b border-neutral-900 pb-10 pt-2">
+    <div id="about" className="scroll-mt-24 border-b border-neutral-900 pb-10 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}

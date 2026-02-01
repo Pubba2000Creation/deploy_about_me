@@ -46,9 +46,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID ;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (serviceId === "YOUR_SERVICE_ID" || !import.meta.env.VITE_EMAILJS_SERVICE_ID) {
       console.warn("EmailJS IDs not found in environment variables. Falling back to demo mode.");
@@ -76,7 +76,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="mt-20 border-b border-neutral-900 pb-20 px-4 sm:px-6 lg:px-8">
+    <div id="contact" className="scroll-mt-24 mt-20 border-b border-neutral-900 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}

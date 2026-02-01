@@ -9,7 +9,7 @@ import Research from '../components/Research';
 
 const Home = () => {
     return (
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto px-10 pt-20 lg:pt-24">
             <Navbar />
             <Hero />
             <About />
