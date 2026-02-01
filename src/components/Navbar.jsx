@@ -39,25 +39,25 @@ const Navbar = () => {
       animate="visible"
       variants={navVariants}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "py-3 bg-neutral-950/70 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-950/10"
-        : "py-6 bg-transparent"
+        ? "py-3 bg-neutral-900/70 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-500/10"
+        : "py-6 bg-neutral-800"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto pt-10 px-6 lg:px-12 flex items-center justify-between">
         {/* Brand Name as Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           className="flex flex-shrink-0 items-center"
         >
           <a href="#" className="flex items-center gap-1 group">
-            <span className="text-2xl font-bold tracking-tighter text-white">Pubudu</span>
+            <span className="text-3xl font-bold tracking-tighter text-white">Pubudu</span>
             <span className="w-2 h-2 rounded-full bg-purple-500 group-hover:animate-pulse"></span>
           </a>
         </motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8 text-neutral-400 text-xs uppercase tracking-[0.2em] font-medium">
+          <div className="flex items-center gap-8 text-neutral-400 text-sm uppercase tracking-[0.2em] font-medium">
             {NAV_LINKS.map((link) => (
               <motion.a
                 key={link.name}
