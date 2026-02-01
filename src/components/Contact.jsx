@@ -46,9 +46,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_sbj2dj4";
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_p5wtxoi";
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "M9ycVUMFITyM7Gwfl";
 
     if (serviceId === "YOUR_SERVICE_ID" || !import.meta.env.VITE_EMAILJS_SERVICE_ID) {
       console.warn("EmailJS IDs not found in environment variables. Falling back to demo mode.");
@@ -147,11 +147,12 @@ const Contact = () => {
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 blur-[100px] -z-10 rounded-full"></div>
 
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="title" value="Portfolio Message" />
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-neutral-500 font-medium ml-1">Full Name</label>
                 <input
                   type="text"
-                  name="user_name"
+                  name="name"
                   required
                   placeholder="Your Name"
                   className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
@@ -164,7 +165,7 @@ const Contact = () => {
                 <label className="text-xs uppercase tracking-widest text-neutral-500 font-medium ml-1">Email Address</label>
                 <input
                   type="email"
-                  name="user_email"
+                  name="email"
                   required
                   placeholder="someone@example.com"
                   className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
