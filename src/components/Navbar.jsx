@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaFacebook, FaMedium, FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/kevinRushLogo-removebg-preview.png";
+import logo from "../assets/logo.png";
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
