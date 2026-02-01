@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { CONTACT } from "../constants";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
 
@@ -37,18 +38,41 @@ ContactInfo.propTypes = {
 };
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      alert("Message sent successfully! (Demo Only)");
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1500);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+    if (serviceId === "YOUR_SERVICE_ID" || !import.meta.env.VITE_EMAILJS_SERVICE_ID) {
+      console.warn("EmailJS IDs not found in environment variables. Falling back to demo mode.");
+      setTimeout(() => {
+        alert("EmailJS is not configured yet. Please add your credentials to .env file.");
+        setIsSubmitting(false);
+      }, 1000);
+      return;
+    }
+
+    emailjs
+      .sendForm(serviceId, templateId, form.current, publicKey)
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+          setIsSubmitting(false);
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          alert("Failed to send the message. Please try again or contact me via WhatsApp.");
+          setIsSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -122,11 +146,12 @@ const Contact = () => {
             {/* Background Glow for Form */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 blur-[100px] -z-10 rounded-full"></div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-neutral-500 font-medium ml-1">Full Name</label>
                 <input
                   type="text"
+                  name="user_name"
                   required
                   placeholder="Your Name"
                   className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
@@ -139,6 +164,7 @@ const Contact = () => {
                 <label className="text-xs uppercase tracking-widest text-neutral-500 font-medium ml-1">Email Address</label>
                 <input
                   type="email"
+                  name="user_email"
                   required
                   placeholder="someone@example.com"
                   className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
@@ -150,6 +176,7 @@ const Contact = () => {
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest text-neutral-500 font-medium ml-1">Message</label>
                 <textarea
+                  name="message"
                   required
                   rows="4"
                   placeholder="How can I help you?"
