@@ -6,6 +6,9 @@ import backendDoc from "../assets/projects/ecommrece/backend_doc.pdf";
 import databaseDoc from "../assets/projects/ecommrece/database_doc.pdf";
 import frontendDoc from "../assets/projects/ecommrece/frontend_doc.pdf";
 import overallDoc from "../assets/projects/ecommrece/overall_doc.pdf";
+import wallDamageImg from "../assets/projects/wallDamage/postman.png";
+import wallDamageResearchDoc from "../assets/projects/wallDamage/Technical_Research_Report_Wall_Damage_AI.pdf";
+import wallDamageBackendDoc from "../assets/projects/wallDamage/Wall_Damage_Detection_Backend_Documentation.pdf";
 
 export const HERO_CONTENT =
   `
@@ -138,6 +141,27 @@ export const PROJECTS = [
     ],
     technologies: ["NestJS", "React", "Mobile (Flutter/React Native)", "PostgreSQL", "Docker", "Redis"],
     role: "Backend Architect"
+  },
+  {
+    id: "wall-damage-backend",
+    title: "Wall Damage AI Backend",
+    image: wallDamageImg,
+    description: "An end-to-end AI-driven backend for automated wall damage detection, classification, and repair estimation.",
+    fullDescription: "A high-performance hybrid system combining YOLOv8 for precise damage localization and ResNet-50 for context-aware texture classification. The system features a custom 'Voter Algorithm' to reconcile model predictions and integrates Google Gemini 1.5 Pro to generate actionable remediation steps and material estimates. Built with a scalable NestJS orchestrator and Python-based AI inference pipeline.",
+    features: [
+      "Hybrid ML Pipeline: Ensemble strategy using YOLOv8 and ResNet-50 for superior accuracy.",
+      "Cost & Material Estimation: Integrated logic for calculating repair extents and costs.",
+      "GenAI Integration: Automated repair instructions generated via Gemini 1.5 Pro.",
+      "High-Performance IPC: Low-latency bridge between NestJS and Python using child processes.",
+      "Forensic Logging: Detailed audit trails of the AI decision-making process."
+    ],
+    technologies: ["Python", "YOLOv8", "ResNet-50", "NestJS", "Google Gemini API", "PyTorch", "TensorFlow"],
+    role: "Lead AI & Backend Engineer",
+    video: "https://res.cloudinary.com/djrw4gbk9/video/upload/v1769853543/wall_Damage_backend_mweknk.mp4",
+    documents: [
+      { title: "Technical Research Report", src: wallDamageResearchDoc },
+      { title: "Backend Documentation", src: wallDamageBackendDoc },
+    ]
   },
 ];
 
