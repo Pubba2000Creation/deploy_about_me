@@ -3,6 +3,7 @@ import { RESEARCH } from '../constants';
 import { motion } from 'framer-motion';
 import { IoArrowBack } from 'react-icons/io5';
 import { FaFilePdf, FaChartLine, FaRobot, FaMicroscope } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const ResearchImage = ({ src, title }) => (
     <div className="group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl">
@@ -16,6 +17,11 @@ const ResearchImage = ({ src, title }) => (
         </div>
     </div>
 );
+
+ResearchImage.propTypes = {
+    src: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+};
 
 const ResearchDetails = () => {
     const { id } = useParams();
