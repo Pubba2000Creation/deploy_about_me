@@ -98,7 +98,7 @@ const Technologies = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="my-20 text-4xl text-center text-white font-thin tracking-tight"
+        className="my-20 text-5xl text-center text-white font-thin tracking-tight"
       >
         Technologies & Specialized Expertise
       </motion.h1>

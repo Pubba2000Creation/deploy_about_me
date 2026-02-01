@@ -86,7 +86,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}
                 transition={{ duration: 1 }}
-                className="my-20 text-center text-4xl text-white font-thin tracking-tight"
+                className="my-20 text-center text-5xl text-white font-thin tracking-tight"
             >
                 Featured Projects
             </motion.h2>

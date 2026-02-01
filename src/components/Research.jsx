@@ -10,7 +10,7 @@ const Research = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}
                 transition={{ duration: 1 }}
-                className="my-10 text-center text-4xl font-thin tracking-tight"
+                className="my-10 text-center text-5xl font-thin tracking-tight"
             >
                 Research & <span className="text-purple-500">ML Analytics</span>
             </motion.h2>
