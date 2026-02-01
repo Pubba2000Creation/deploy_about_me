@@ -25,7 +25,7 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <div id="hero" className="scroll-mt-42 border-b border-neutral-900 pb-10 lg:mb-36 pt-40 px-4 sm:px-8">
+    <div id="hero" className="scroll-mt-42 border-b border-neutral-900 pb-10 lg:mb-36 pt-20 px-4 sm:px-8">
       <div className="flex flex-wrap items-center">
         {/* Text Content */}
         <div className="w-full lg:w-3/5">
