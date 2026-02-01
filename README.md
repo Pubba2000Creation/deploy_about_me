@@ -1,8 +1,53 @@
-# React + Vite
+# Modern Software Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, backend-focused full-stack engineer portfolio built with React, Vite, and Framer Motion. This project showcases technical expertise in backend architecture, AI systems, and scalable full-stack applications.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[View Live Portfolio](https://pubba2000creationsweb.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, Vite, Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **Routing**: React Router Dom
+- **State/Hooks**: Custom Hooks for Analytics (View Counting)
+
+## ✨ Key Features
+
+- **Dynamic Project Details**: Individual pages for each project with deep-dive technical breakdowns.
+- **Research Analytics**: Dedicated section for AI and machine learning research with integrated performance metrics visualization.
+- **Real-Time View Counting**: Custom `useViewCount` hook tracks engagement per project/research item using LocalStorage.
+- **Responsive & Premium UI**: A glassmorphic design system using Tailwind CSS, featuring smooth micro-animations and transitions.
+- **Optimized for Backend Showcasing**: Special focus on displaying system architectures, documentation, and technical documentation PDFs.
+
+## 📁 Project Highlights
+
+### 🤖 Wall Damage AI Backend
+An end-to-end AI-driven backend for automated wall damage detection, classification, and repair estimation using YOLOv8, ResNet-50, and Google Gemini.
+
+### 🚗 E-Garage System
+A complete garage management solution integrating mobile and web platforms for service booking and inventory tracking.
+
+### 🎂 CakeHub Web System
+A sophisticated platform for managing customized cake orders with real-time tracking and delivery integration.
+
+## 🛠️ Local Development
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.

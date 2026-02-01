@@ -6,6 +6,11 @@ import backendDoc from "../assets/projects/ecommrece/backend_doc.pdf";
 import databaseDoc from "../assets/projects/ecommrece/database_doc.pdf";
 import frontendDoc from "../assets/projects/ecommrece/frontend_doc.pdf";
 import overallDoc from "../assets/projects/ecommrece/overall_doc.pdf";
+import wallDamageImg from "../assets/projects/wallDamage/postman.png";
+import wallDamageResearchDoc from "../assets/projects/wallDamage/Technical_Research_Report_Wall_Damage_AI.pdf";
+import wallDamageBackendDoc from "../assets/projects/wallDamage/Wall_Damage_Detection_Backend_Documentation.pdf";
+import wallDamageThesis from "../assets/research/AI Framework For Wall Damage Analysis/thesis.pdf";
+import wallDamageDetectionPaper from "../assets/research/AI Framework For Wall Damage Analysis/Wall Damage Detection and Cost Estimation System.pdf";
 
 export const HERO_CONTENT =
   `
@@ -139,19 +144,67 @@ export const PROJECTS = [
     technologies: ["NestJS", "React", "Mobile (Flutter/React Native)", "PostgreSQL", "Docker", "Redis"],
     role: "Backend Architect"
   },
+  {
+    id: "wall-damage-backend",
+    title: "Wall Damage AI Backend",
+    image: wallDamageImg,
+    description: "An end-to-end AI-driven backend for automated wall damage detection, classification, and repair estimation.",
+    fullDescription: "A high-performance hybrid system combining YOLOv8 for precise damage localization and ResNet-50 for context-aware texture classification. The system features a custom 'Voter Algorithm' to reconcile model predictions and integrates Google Gemini 1.5 Pro to generate actionable remediation steps and material estimates. Built with a scalable NestJS orchestrator and Python-based AI inference pipeline.",
+    features: [
+      "Hybrid ML Pipeline: Ensemble strategy using YOLOv8 and ResNet-50 for superior accuracy.",
+      "Cost & Material Estimation: Integrated logic for calculating repair extents and costs.",
+      "GenAI Integration: Automated repair instructions generated via Gemini 1.5 Pro.",
+      "High-Performance IPC: Low-latency bridge between NestJS and Python using child processes.",
+      "Forensic Logging: Detailed audit trails of the AI decision-making process."
+    ],
+    technologies: ["Python", "YOLOv8", "ResNet-50", "NestJS", "Google Gemini API", "PyTorch", "TensorFlow"],
+    role: "Lead AI & Backend Engineer",
+    video: "https://res.cloudinary.com/djrw4gbk9/video/upload/v1769853543/wall_Damage_backend_mweknk.mp4",
+    documents: [
+      { title: "Technical Research Report", src: wallDamageResearchDoc },
+      { title: "Backend Documentation", src: wallDamageBackendDoc },
+    ]
+  },
 ];
 
 export const RESEARCH = [
   {
-    title: "AI-Driven Backend Scalability in Microservices",
-    description: "A comprehensive research project exploring the integration of machine learning models for dynamic resource allocation and load balancing in NestJS-based microservice architectures. The study focuses on predictive scaling and reducing latency in high-traffic production environments.",
-    link: "#", // Placeholder for PDF link
-    technologies: ["AI Systems", "NestJS", "Microservices", "Python"],
+    id: "wall-damage-research",
+    title: "AI Framework for Automated Wall Damage Analysis & Detection",
+    description: "A comprehensive thesis exploring the application of ensemble deep learning models (YOLOv8 & ResNet-50) for structural health monitoring. This research details a hybrid architecture for high-precision defect identification, localization, and automated repair cost estimation.",
+    papers: [
+      { title: "Research Thesis", src: wallDamageThesis },
+      { title: "Technical Paper", src: wallDamageDetectionPaper }
+    ],
+    technologies: ["Deep Learning", "YOLOv8", "ResNet-50", "Computer Vision", "Python", "PyTorch"],
+    metrics: {
+      resnet: [
+        { title: "Loss Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931806/resnet50_v3_loss_fdnc17.png" },
+        { title: "Learning Rate", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931805/resnet50_v3_learning_rate_xtyfix.png" },
+        { title: "Accuracy Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931803/resnet50_v3_accuracy_es0wvc.png" }
+      ],
+      yolo: [
+        { title: "R-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931775/R_curve_w49kno.png" },
+        { title: "PR-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931773/PR_curve_wzbvsr.png" },
+        { title: "P-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931772/P_curve_zgwynl.png" },
+        { title: "Confusion Matrix", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931771/confusion_matrix_normalized_dcdbz7.png" },
+        { title: "F1-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931772/F1_curve_f8xegr.png" }
+      ],
+      training: [
+        { title: "Validation Preds", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931982/val_batch2_pred_k91s4u.jpg" },
+        { title: "Validation Labels", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931979/val_batch2_labels_nssf73.jpg" },
+        { title: "Train Batch 0", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931967/train_batch0_yk4bgh.jpg" },
+        { title: "Train Batch 1", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931970/train_batch1_m820ao.jpg" },
+        { title: "Labels Correlogram", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931938/labels_correlogram_oqyoyp.jpg" },
+        { title: "Labels Distribution", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931882/labels_celxax.jpg" }
+      ]
+    }
   },
 ];
 
 export const CONTACT = {
   address: "Horana, Western Province, Sri lanka",
   phoneNo: "+94 705 140 790",
+  whatsapp: "+94705140790",
   email: "prabashanapubudu@gmail.com",
 };

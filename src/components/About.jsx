@@ -9,12 +9,12 @@ const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div id="about" className="border-b border-neutral-900 pb-10 pt-2">
+    <div id="about" className="scroll-mt-24 border-b border-neutral-900 pb-16 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="mb-20 text-center text-4xl font-thin tracking-tight text-white"
+        className="mb-24 text-center text-5xl font-thin tracking-tight text-white"
       >
         Engineering Journey & <span className="text-neutral-500">Expertise</span>
       </motion.h2>

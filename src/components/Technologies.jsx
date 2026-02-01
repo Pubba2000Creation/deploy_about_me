@@ -93,12 +93,12 @@ TechCategory.propTypes = {
 
 const Technologies = () => {
   return (
-    <div id="technologies" className="border-b border-neutral-800 pb-24 px-4 sm:px-8">
+    <div id="technologies" className="scroll-mt-24 border-b border-neutral-800 pb-24 px-4 sm:px-8">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="my-20 text-4xl text-center text-white font-thin tracking-tight"
+        className="my-20 text-5xl text-center text-white font-thin tracking-tight"
       >
         Technologies & Specialized Expertise
       </motion.h1>
