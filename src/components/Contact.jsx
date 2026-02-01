@@ -46,9 +46,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_sbj2dj4";
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_p5wtxoi";
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "M9ycVUMFITyM7Gwfl";
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID ;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ;
 
     if (serviceId === "YOUR_SERVICE_ID" || !import.meta.env.VITE_EMAILJS_SERVICE_ID) {
       console.warn("EmailJS IDs not found in environment variables. Falling back to demo mode.");
