@@ -1,9 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
 import { RESEARCH } from '../constants';
 import { motion } from 'framer-motion';
-import { IoArrowBack } from 'react-icons/io5';
+import { IoArrowBack, IoEyeSharp } from 'react-icons/io5';
 import { FaFilePdf, FaChartLine, FaRobot, FaMicroscope } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import useViewCount from '../hooks/useViewCount';
+import { useEffect, useRef } from 'react';
 
 const ResearchImage = ({ src, title }) => (
     <div className="group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl">
@@ -26,6 +28,15 @@ ResearchImage.propTypes = {
 const ResearchDetails = () => {
     const { id } = useParams();
     const item = RESEARCH.find((r) => r.id === id);
+    const { views, increment, formatViews } = useViewCount(id || '');
+    const hasIncremented = useRef(false);
+
+    useEffect(() => {
+        if (id && !hasIncremented.current) {
+            increment();
+            hasIncremented.current = true;
+        }
+    }, [id, increment]);
 
     if (!item) {
         return (
@@ -50,9 +61,18 @@ const ResearchDetails = () => {
                 transition={{ duration: 0.5 }}
                 className="mb-16"
             >
-                <h1 className="text-4xl lg:text-6xl font-thin tracking-tight text-white mb-6">
-                    {item.title}
-                </h1>
+                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-4 mb-6">
+                    <h1 className="text-4xl lg:text-6xl font-thin tracking-tight text-white">
+                        {item.title}
+                    </h1>
+
+                    {/* View Count Display */}
+                    <div className="flex items-center gap-2 bg-neutral-900/50 border border-neutral-800 px-4 py-2 rounded-full">
+                        <IoEyeSharp className="text-purple-400 text-lg" />
+                        <span className="text-white font-medium">{formatViews(views)}</span>
+                        <span className="text-neutral-500 text-sm ml-1">Views</span>
+                    </div>
+                </div>
                 <p className="text-xl text-neutral-400 max-w-4xl leading-relaxed font-light">
                     {item.description}
                 </p>
