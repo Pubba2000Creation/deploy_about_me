@@ -9,6 +9,8 @@ import overallDoc from "../assets/projects/ecommrece/overall_doc.pdf";
 import wallDamageImg from "../assets/projects/wallDamage/postman.png";
 import wallDamageResearchDoc from "../assets/projects/wallDamage/Technical_Research_Report_Wall_Damage_AI.pdf";
 import wallDamageBackendDoc from "../assets/projects/wallDamage/Wall_Damage_Detection_Backend_Documentation.pdf";
+import wallDamageThesis from "../assets/research/AI Framework For Wall Damage Analysis/thesis.pdf";
+import wallDamageDetectionPaper from "../assets/research/AI Framework For Wall Damage Analysis/Wall Damage Detection and Cost Estimation System.pdf";
 
 export const HERO_CONTENT =
   `
@@ -167,10 +169,36 @@ export const PROJECTS = [
 
 export const RESEARCH = [
   {
-    title: "AI-Driven Backend Scalability in Microservices",
-    description: "A comprehensive research project exploring the integration of machine learning models for dynamic resource allocation and load balancing in NestJS-based microservice architectures. The study focuses on predictive scaling and reducing latency in high-traffic production environments.",
-    link: "#", // Placeholder for PDF link
-    technologies: ["AI Systems", "NestJS", "Microservices", "Python"],
+    id: "wall-damage-research",
+    title: "AI Framework for Automated Wall Damage Analysis & Detection",
+    description: "A comprehensive thesis exploring the application of ensemble deep learning models (YOLOv8 & ResNet-50) for structural health monitoring. This research details a hybrid architecture for high-precision defect identification, localization, and automated repair cost estimation.",
+    papers: [
+      { title: "Research Thesis", src: wallDamageThesis },
+      { title: "Technical Paper", src: wallDamageDetectionPaper }
+    ],
+    technologies: ["Deep Learning", "YOLOv8", "ResNet-50", "Computer Vision", "Python", "PyTorch"],
+    metrics: {
+      resnet: [
+        { title: "Loss Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931806/resnet50_v3_loss_fdnc17.png" },
+        { title: "Learning Rate", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931805/resnet50_v3_learning_rate_xtyfix.png" },
+        { title: "Accuracy Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931803/resnet50_v3_accuracy_es0wvc.png" }
+      ],
+      yolo: [
+        { title: "R-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931775/R_curve_w49kno.png" },
+        { title: "PR-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931773/PR_curve_wzbvsr.png" },
+        { title: "P-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931772/P_curve_zgwynl.png" },
+        { title: "Confusion Matrix", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931771/confusion_matrix_normalized_dcdbz7.png" },
+        { title: "F1-Curve", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931772/F1_curve_f8xegr.png" }
+      ],
+      training: [
+        { title: "Validation Preds", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931982/val_batch2_pred_k91s4u.jpg" },
+        { title: "Validation Labels", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931979/val_batch2_labels_nssf73.jpg" },
+        { title: "Train Batch 0", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931967/train_batch0_yk4bgh.jpg" },
+        { title: "Train Batch 1", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931970/train_batch1_m820ao.jpg" },
+        { title: "Labels Correlogram", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931938/labels_correlogram_oqyoyp.jpg" },
+        { title: "Labels Distribution", url: "https://res.cloudinary.com/djrw4gbk9/image/upload/v1769931882/labels_celxax.jpg" }
+      ]
+    }
   },
 ];
 
