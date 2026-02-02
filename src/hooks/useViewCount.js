@@ -1,96 +1,110 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
-const useViewCount = (projectId) => {
+/**
+ * useViewCount Hook
+ * @param {string} projectId - Unique ID for the project/research item
+ * @param {boolean} shouldIncrement - If true, will attempt to count a new view for this session
+ */
+const useViewCount = (projectId, shouldIncrement = false) => {
     const [views, setViews] = useState(0);
+    const lastProcessedId = useRef(null);
 
-    const fetchViews = useCallback(async () => {
-        if (!projectId) return;
-        try {
-            const { data, error } = await supabase
-                .from('views')
-                .select('count')
-                .eq('id', projectId)
-                .single();
-
-            if (error) {
-                if (error.code === 'PGRST116') { // Record not found
-                    const { data: newData, error: insertError } = await supabase
-                        .from('views')
-                        .insert([{ id: projectId, count: 0 }])
-                        .select()
-                        .single();
-
-                    if (!insertError && newData) {
-                        setViews(newData.count);
-                    }
-                }
-            } else if (data) {
-                setViews(data.count);
-            }
-        } catch (err) {
-            console.error('Error in fetchViews:', err);
-        }
-    }, [projectId]);
-
-    const increment = useCallback(async () => {
+    useEffect(() => {
         if (!projectId) return;
 
-        // Check session storage before incrementing to prevent multiple counts per session
-        const alreadyVisited = sessionStorage.getItem(`visited_${projectId}`);
-        if (alreadyVisited) return;
+        let isSubscribed = true;
+        // Reset state instantly when switching project pages
+        setViews(0);
 
-        try {
-            // Use Supabase RPC for atomic increment
-            const { data, error } = await supabase.rpc('increment_view_count', {
-                target_id: projectId
-            });
-
-            if (!error) {
-                setViews(data);
-                sessionStorage.setItem(`visited_${projectId}`, 'true');
-            } else {
-                console.warn('RPC failed, falling back to manual increment:', error.message);
-
-                // Fallback manual increment
-                const { data: currentData } = await supabase
+        const runViewLogic = async () => {
+            try {
+                // 1. Fetch current count from Supabase
+                const { data, error } = await supabase
                     .from('views')
                     .select('count')
                     .eq('id', projectId)
                     .single();
 
-                const currentCount = currentData ? currentData.count : 0;
+                if (!isSubscribed) return;
 
-                const { data: updateData } = await supabase
-                    .from('views')
-                    .update({ count: currentCount + 1 })
-                    .eq('id', projectId)
-                    .select()
-                    .single();
-
-                if (updateData) {
-                    setViews(updateData.count);
-                    sessionStorage.setItem(`visited_${projectId}`, 'true');
+                if (error) {
+                    if (error.code === 'PGRST116') {
+                        // Record not found in DB yet
+                        console.log(`[ViewCount] 🆕 New record detected for: ${projectId}`);
+                    } else {
+                        console.error(`[ViewCount] ❌ Database error:`, error.message);
+                    }
+                } else if (data) {
+                    setViews(data.count);
                 }
-            }
-        } catch (err) {
-            console.error('Error in increment:', err);
-        }
-    }, [projectId]);
 
-    useEffect(() => {
-        if (!projectId) return;
-        fetchViews();
-    }, [projectId, fetchViews]);
+                // 2. Increment logic (only if requested and not already done this session window)
+                if (shouldIncrement && lastProcessedId.current !== projectId) {
+                    const sessionKey = `visited_${projectId}`;
+                    const alreadyVisited = sessionStorage.getItem(sessionKey);
+
+                    if (!alreadyVisited) {
+                        console.info(`[ViewCount] 🚀 Attempting to count view for: ${projectId}`);
+                        lastProcessedId.current = projectId;
+
+                        // Try atomic increment first (RPC)
+                        const { data: newCount, error: rpcError } = await supabase.rpc('increment_view_count', {
+                            target_id: projectId
+                        });
+
+                        if (!rpcError) {
+                            if (isSubscribed) setViews(newCount);
+                            sessionStorage.setItem(sessionKey, 'true');
+                            console.info(`[ViewCount] ✅ Count matched globally: ${newCount}`);
+                        } else {
+                            console.warn(`[ViewCount] ⚠️ RPC unavailable, using fallback for ${projectId}`);
+
+                            // Manual Upsert Fallback
+                            const { data: currentData } = await supabase
+                                .from('views')
+                                .select('count')
+                                .eq('id', projectId)
+                                .single();
+
+                            const nextVal = (currentData?.count || 0) + 1;
+
+                            const { error: upsertError } = await supabase
+                                .from('views')
+                                .upsert({ id: projectId, count: nextVal });
+
+                            if (!upsertError && isSubscribed) {
+                                setViews(nextVal);
+                                sessionStorage.setItem(sessionKey, 'true');
+                                console.info(`[ViewCount] ✅ Fallback update success: ${nextVal}`);
+                            } else if (upsertError) {
+                                console.error(`[ViewCount] ❌ Both RPC and Fallback failed:`, upsertError.message);
+                            }
+                        }
+                    } else {
+                        console.log(`[ViewCount] ℹ️ Session visit already recorded for ${projectId}. Skipping increment.`);
+                    }
+                }
+            } catch (err) {
+                console.error(`[ViewCount] 💥 Unexpected error:`, err);
+            }
+        };
+
+        runViewLogic();
+
+        return () => {
+            isSubscribed = false;
+        };
+    }, [projectId, shouldIncrement]);
 
     const formatViews = (count) => {
         return new Intl.NumberFormat('en-US', {
             notation: "compact",
             compactDisplay: "short"
-        }).format(count);
+        }).format(count || 0);
     };
 
-    return { views, increment, formatViews };
+    return { views, formatViews };
 };
 
 export default useViewCount;
