@@ -5,7 +5,7 @@ import { IoArrowBack, IoEyeSharp } from 'react-icons/io5';
 import { FaFilePdf, FaChartLine, FaRobot, FaMicroscope } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import useViewCount from '../hooks/useViewCount';
-import { useEffect, useRef } from 'react';
+
 
 const ResearchImage = ({ src, title }) => (
     <div className="group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl">
@@ -28,15 +28,7 @@ ResearchImage.propTypes = {
 const ResearchDetails = () => {
     const { id } = useParams();
     const item = RESEARCH.find((r) => r.id === id);
-    const { views, increment, formatViews } = useViewCount(id || '');
-    const hasIncremented = useRef(false);
-
-    useEffect(() => {
-        if (id && !hasIncremented.current) {
-            increment();
-            hasIncremented.current = true;
-        }
-    }, [id, increment]);
+    const { views, formatViews } = useViewCount(id || '', true);
 
     if (!item) {
         return (
