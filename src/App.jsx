@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Home from './pages/Home';
 import ProjectDetails from './pages/ProjectDetails';
 import ResearchDetails from './pages/ResearchDetails';
+import ExperiencePage from './pages/ExperiencePage';
 import { trackPageView } from './lib/analytics';
 
 const PageViewTracker = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <PageViewTracker />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/research/:id" element={<ResearchDetails />} />
         </Routes>
