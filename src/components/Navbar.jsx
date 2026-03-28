@@ -40,9 +40,9 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={navVariants}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "py-3 bg-neutral-900/70 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-500/10"
-        : "py-6 bg-neutral-800"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? "py-3 bg-neutral-950/80 backdrop-blur-2xl border-b border-purple-500/20 shadow-2xl shadow-purple-500/10"
+        : "py-6 bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto pt-10 px-6 lg:px-12 flex items-center justify-between">
@@ -51,7 +51,11 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="flex flex-shrink-0 items-center"
         >
-          <Link to="/" className="flex items-center gap-1 group">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-1 group"
+          >
             <span className="text-3xl font-bold tracking-tighter text-white">Pubudu</span>
             <span className="w-2 h-2 rounded-full bg-purple-500 group-hover:animate-pulse"></span>
           </Link>
@@ -128,10 +132,17 @@ const Navbar = () => {
               className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-neutral-950 z-[70] shadow-2xl lg:hidden p-10 flex flex-col"
             >
               <div className="flex justify-between items-center mb-16 px-2">
-                <a href="#" className="flex items-center gap-1 group">
-                  <span className="text-3xl font-bold tracking-tighter text-white">Prabod</span>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="flex items-center gap-1 group"
+                >
+                  <span className="text-3xl font-bold tracking-tighter text-white">Pubudu</span>
                   <span className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse"></span>
-                </a>
+                </Link>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="text-neutral-400 p-2 hover:bg-neutral-900 rounded-full transition-colors">
                   <FaTimes size={24} />
                 </button>
