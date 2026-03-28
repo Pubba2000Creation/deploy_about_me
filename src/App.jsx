@@ -6,6 +6,21 @@ import ResearchDetails from './pages/ResearchDetails';
 import ExperiencePage from './pages/ExperiencePage';
 import { trackPageView } from './lib/analytics';
 
+const ScrollToHash = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+
+  return null;
+};
+
 const PageViewTracker = () => {
   const location = useLocation();
 
@@ -22,6 +37,7 @@ const App = () => {
       <div className="fixed top-0 -z-10 h-full w-full"></div>
 
       <Router>
+        <ScrollToHash />
         <PageViewTracker />
         <Routes>
           <Route path="/" element={<Home />} />
