@@ -15,6 +15,7 @@ const NAV_LINKS = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,18 +60,20 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8 text-neutral-400 text-sm uppercase tracking-[0.2em] font-medium">
-            {NAV_LINKS.map((link) => (
-              <motion.div key={link.name}>
-                <Link
-                  to={link.href}
-                  whileHover={{ y: -1 }}
-                  className="hover:text-purple-400 transition-colors relative group py-2"
-                >
-                  {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </motion.div>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = location.pathname === link.href || (link.href.startsWith("/#") && location.pathname === "/");
+              return (
+                <motion.div key={link.name} whileHover={{ y: -1 }}>
+                  <Link
+                    to={link.href}
+                    className={`${isActive ? "text-purple-400" : "text-neutral-400"} hover:text-purple-400 transition-colors relative group py-2`}
+                  >
+                    {link.name}
+                    <span className={`absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
           <div className="h-4 w-px bg-neutral-800 mx-2"></div>
