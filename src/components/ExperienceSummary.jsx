@@ -2,7 +2,6 @@ import { EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaBriefcase } from "react-icons/fa";
-import PropTypes from "prop-types";
 
 const ExperienceSummary = () => {
   // Take only the most recent experience for the summary
