@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaFacebook, FaMedium, FaBars, FaTimes } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const NAV_LINKS = [
-  { name: "About", href: "#about" },
-  { name: "Technologies", href: "#technologies" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Research", href: "#research" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/#about" },
+  { name: "Technologies", href: "/#technologies" },
+  { name: "Experience", href: "/experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Research", href: "/#research" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
