@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { CONTACT } from "../constants";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
+import { trackEvent } from "../lib/analytics";
 
 const ContactInfo = ({ icon: Icon, text, label, subtext, href }) => {
   const content = (
@@ -63,11 +64,13 @@ const Contact = () => {
       .sendForm(serviceId, templateId, form.current, publicKey)
       .then(
         () => {
+          trackEvent("Contact", "Form Submit", "Success");
           alert("Message sent successfully!");
           setFormData({ name: "", email: "", message: "" });
           setIsSubmitting(false);
         },
         (error) => {
+          trackEvent("Contact", "Form Submit", "Failure");
           console.error("EmailJS Error:", error);
           alert("Failed to send the message. Please try again or contact me via WhatsApp.");
           setIsSubmitting(false);
