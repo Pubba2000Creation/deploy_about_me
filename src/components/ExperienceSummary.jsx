@@ -54,7 +54,7 @@ const ExperienceSummary = () => {
 
               <div className="flex justify-between items-start mb-6">
                 <span className="text-sm font-medium text-purple-400">{latestExperience.year}</span>
-                <span className="px-3 py-1 bg-neutral-950 border border-neutral-800 rounded-lg text-[10px] text-neutral-500 uppercase tracking-tighter">Latest Role</span>
+                <span className="px-3 py-1 bg-neutral-950 border border-neutral-800 rounded-lg text-[10px] text-neutral-200 uppercase tracking-tighter">Latest Role</span>
               </div>
 
               <h3 className="text-2xl font-semibold text-neutral-200 mb-2">{latestExperience.role}</h3>
