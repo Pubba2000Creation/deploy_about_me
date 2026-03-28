@@ -18,7 +18,7 @@ const ResearchSummary = () => {
             transition={{ duration: 0.8 }}
             className="lg:w-1/2"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-neutral-100/20 text-neutral-100 text-xs font-medium uppercase tracking-widest mb-6">
               <FaMicroscope className="text-[10px]" />
               Research Highlight
             </div>
