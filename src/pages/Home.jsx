@@ -1,11 +1,11 @@
 import About from '../components/About';
 import Contact from '../components/Contact';
-import Experience from '../components/Experience';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import Projects from '../components/Projects';
-import Technologies from "../components/Technologies";
-import Research from '../components/Research';
+import TechnologiesSummary from '../components/TechnologiesSummary';
+import ExperienceSummary from '../components/ExperienceSummary';
+import ResearchSummaryComp from '../components/ResearchSummary';
 
 const Home = () => {
     return (
@@ -13,10 +13,10 @@ const Home = () => {
             <Navbar />
             <Hero />
             <About />
-            <Technologies />
-            <Experience />
+            <TechnologiesSummary />
+            <ExperienceSummary />
             <Projects />
-            <Research />
+            <ResearchSummaryComp />
             <Contact />
         </div>
     );
