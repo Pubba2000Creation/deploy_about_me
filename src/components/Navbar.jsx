@@ -50,25 +50,26 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="flex flex-shrink-0 items-center"
         >
-          <a href="#" className="flex items-center gap-1 group">
+          <Link to="/" className="flex items-center gap-1 group">
             <span className="text-3xl font-bold tracking-tighter text-white">Pubudu</span>
             <span className="w-2 h-2 rounded-full bg-purple-500 group-hover:animate-pulse"></span>
-          </a>
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8 text-neutral-400 text-sm uppercase tracking-[0.2em] font-medium">
             {NAV_LINKS.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                whileHover={{ y: -1 }}
-                className="hover:text-purple-400 transition-colors relative group py-2"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
-              </motion.a>
+              <motion.div key={link.name}>
+                <Link
+                  to={link.href}
+                  whileHover={{ y: -1 }}
+                  className="hover:text-purple-400 transition-colors relative group py-2"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -135,15 +136,16 @@ const Navbar = () => {
 
               <div className="flex flex-col gap-8 px-2">
                 {NAV_LINKS.map((link) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    whileHover={{ x: 10 }}
-                    className="text-3xl font-thin text-neutral-300 hover:text-purple-400 tracking-wide transition-colors"
-                  >
-                    {link.name}
-                  </motion.a>
+                  <motion.div key={link.name}>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      whileHover={{ x: 10 }}
+                      className="text-3xl font-thin text-neutral-300 hover:text-purple-400 tracking-wide transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
 
