@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Projects from '../components/Projects';
 import Technologies from "../components/Technologies";
 import Research from '../components/Research';
+import ExperienceSummary from '../components/ExperienceSummary';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Hero />
             <About />
             <Technologies />
+            <ExperienceSummary />
             <Projects />
             <Research />
             <Contact />
