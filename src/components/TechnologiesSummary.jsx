@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { FaArrowRight, FaCode } from "react-icons/fa";
 import { 
     SiNestjs, SiDocker, SiPython, SiTypescript, SiPostgresql, 
-    SiMongodb, SiKubernetes, SiNextdotjs,
+    SiMongodb, SiNextdotjs,
     SiExpress, SiRubyonrails, SiPhp, SiDigitalocean, SiLinux,
     SiElectron, SiDjango, SiOpencv, SiPytorch, SiTensorflow,
-    SiReact
+    SiReact,
+    SiHubspot
 } from "react-icons/si";
 import { AiOutlineScan } from "react-icons/ai";
 
@@ -22,7 +23,7 @@ const CORE_TECH = [
     { Name: "Python", Icon: SiPython, Color: "text-yellow-500" },
     { Name: "Next.js", Icon: SiNextdotjs, Color: "text-white" },
     { Name: "Docker", Icon: SiDocker, Color: "text-blue-400" },
-    { Name: "Kubernetes", Icon: SiKubernetes, Color: "text-blue-600" },
+    { Name: "Docker Hub", Icon: SiHubspot, Color: "text-blue-600" },
     
     { Name: "Electron", Icon: SiElectron, Color: "text-cyan-300" },
     { Name: "OpenCV", Icon: SiOpencv, Color: "text-green-400" },
