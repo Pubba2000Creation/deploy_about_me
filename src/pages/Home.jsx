@@ -4,8 +4,8 @@ import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import Projects from '../components/Projects';
 import Technologies from "../components/Technologies";
-import Research from '../components/Research';
 import ExperienceSummary from '../components/ExperienceSummary';
+import ResearchSummaryComp from '../components/ResearchSummary';
 
 const Home = () => {
     return (
@@ -16,7 +16,7 @@ const Home = () => {
             <Technologies />
             <ExperienceSummary />
             <Projects />
-            <Research />
+            <ResearchSummaryComp />
             <Contact />
         </div>
     );

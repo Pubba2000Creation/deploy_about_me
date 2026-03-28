@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProjectDetails from './pages/ProjectDetails';
 import ResearchDetails from './pages/ResearchDetails';
 import ExperiencePage from './pages/ExperiencePage';
+import ResearchPage from './pages/ResearchPage';
 import { trackPageView } from './lib/analytics';
 
 const ScrollToHash = () => {
@@ -42,6 +43,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/research" element={<ResearchPage />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/research/:id" element={<ResearchDetails />} />
         </Routes>
