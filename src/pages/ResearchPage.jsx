@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft, FaMicroscope } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Research from "../components/Research";
-import Contact from "../components/Contact";
 
 const ResearchPage = () => {
   return (
@@ -36,7 +35,7 @@ const ResearchPage = () => {
         <Research />
       </div>
 
-      <Contact />
+   
     </div>
   );
 };
