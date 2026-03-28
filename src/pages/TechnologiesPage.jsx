@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft, FaCode } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Technologies from "../components/Technologies";
-import Contact from "../components/Contact";
+
 
 const TechnologiesPage = () => {
   return (
     <div className="container mx-auto px-10 pt-20 lg:pt-24 min-h-screen">
       <Navbar />
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -27,17 +27,16 @@ const TechnologiesPage = () => {
         </motion.div>
 
         <div className="flex items-center gap-4 mb-2 overflow-hidden">
-            <FaCode className="text-4xl text-purple-400" />
-            <h1 className="text-5xl font-thin tracking-tight text-white">
-                Technical <span className="text-purple-500 font-normal">Expertise</span>
-            </h1>
+          <FaCode className="text-4xl text-purple-400" />
+          <h1 className="text-5xl font-thin tracking-tight text-white">
+            Technical <span className="text-purple-500 font-normal">Expertise</span>
+          </h1>
         </div>
         <p className="text-neutral-400 font-light mb-16 tracking-wide">A comprehensive overview of my technical stack and specialized tools.</p>
 
         <Technologies />
       </div>
 
-      <Contact />
     </div>
   );
 };
