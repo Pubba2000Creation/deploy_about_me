@@ -2,23 +2,38 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaCode } from "react-icons/fa";
 import { 
-    SiNestjs, SiReact, SiDocker, SiPython, SiTypescript, SiPostgresql, 
-    SiMongodb, SiGooglegemini, SiKubernetes, SiDigitalocean, SiLinux, SiNextdotjs 
+    SiNestjs, SiDocker, SiPython, SiTypescript, SiPostgresql, 
+    SiMongodb, SiKubernetes, SiNextdotjs,
+    SiExpress, SiRubyonrails, SiPhp, SiDigitalocean, SiLinux,
+    SiElectron, SiDjango, SiOpencv, SiPytorch, SiTensorflow,
+    SiReact
 } from "react-icons/si";
+import { AiOutlineScan } from "react-icons/ai";
 
 const CORE_TECH = [
     { Name: "NestJS", Icon: SiNestjs, Color: "text-red-500" },
-    { Name: "React", Icon: SiReact, Color: "text-cyan-400" },
-    { Name: "Docker", Icon: SiDocker, Color: "text-blue-400" },
-    { Name: "Python", Icon: SiPython, Color: "text-yellow-500" },
+    { Name: "Node (Express)", Icon: SiExpress, Color: "text-neutral-100" },
+    { Name: "MERN Stack", Icon: SiMongodb, Color: "text-green-500" },
+    { Name: "Ruby on Rails", Icon: SiRubyonrails, Color: "text-red-600" },
+    { Name: "Django", Icon: SiDjango, Color: "text-green-800" },
+    { Name: "LAMP Stack", Icon: SiPhp, Color: "text-blue-400" },
+    
     { Name: "TypeScript", Icon: SiTypescript, Color: "text-blue-500" },
-    { Name: "PostgreSQL", Icon: SiPostgresql, Color: "text-blue-300" },
-    { Name: "MongoDB", Icon: SiMongodb, Color: "text-green-500" },
+    { Name: "Python", Icon: SiPython, Color: "text-yellow-500" },
     { Name: "Next.js", Icon: SiNextdotjs, Color: "text-white" },
-    { Name: "Gemini", Icon: SiGooglegemini, Color: "text-blue-400" },
+    { Name: "Docker", Icon: SiDocker, Color: "text-blue-400" },
     { Name: "Kubernetes", Icon: SiKubernetes, Color: "text-blue-600" },
+    
+    { Name: "Electron", Icon: SiElectron, Color: "text-cyan-300" },
+    { Name: "OpenCV", Icon: SiOpencv, Color: "text-green-400" },
+    { Name: "YOLO", Icon: AiOutlineScan, Color: "text-yellow-400" },
+    { Name: "PyTorch", Icon: SiPytorch, Color: "text-red-500" },
+    { Name: "TensorFlow", Icon: SiTensorflow, Color: "text-orange-500" },
+
+    { Name: "PostgreSQL", Icon: SiPostgresql, Color: "text-blue-300" },
     { Name: "DigitalOcean", Icon: SiDigitalocean, Color: "text-blue-500" },
     { Name: "Linux", Icon: SiLinux, Color: "text-white" },
+    { Name: "React", Icon: SiReact  , Color: "text-cyan-400" },
 ];
 
 const TechnologiesSummary = () => {
