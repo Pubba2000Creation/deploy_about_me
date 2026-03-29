@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { FaLinkedin, FaGithub, FaFacebook, FaMedium, FaBars, FaTimes } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaHome, FaCode, FaBriefcase, FaProjectDiagram, FaSearch, FaEnvelope } from "react-icons/fa";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -15,8 +15,16 @@ const NAV_LINKS = [
   { name: "Contact", href: "/#contact" },
 ];
 
+const MOBILE_NAV_LINKS = [
+  { name: "Home", href: "/", icon: FaHome },
+  { name: "Tech", href: "/technologies", icon: FaCode },
+  { name: "Proj", href: "/#projects", icon: FaProjectDiagram },
+  { name: "Exp", href: "/experience", icon: FaBriefcase },
+  { name: "Res", href: "/research", icon: FaSearch },
+  { name: "Mail", href: "/#contact", icon: FaEnvelope },
+];
+
 const Navbar = ({ theme, toggleTheme }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -35,11 +43,6 @@ const Navbar = ({ theme, toggleTheme }) => {
       y: 0,
       transition: { duration: 0.5, staggerChildren: 0.1 }
     }
-  };
-
-  const mobileMenuVariants = {
-    closed: { x: "100%", transition: { type: "spring", stiffness: 300, damping: 30 } },
-    open: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } }
   };
 
   return (
@@ -70,7 +73,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6"> 
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname + location.hash === link.href ||
                 (location.pathname === '/' && link.href === '/#about' && !location.hash);
@@ -129,7 +132,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         </div>
 
-        {/* Mobile Toggle & Mobile Theme Toggle */}
+        {/* Mobile Theme Toggle ONLY (Hamburger removed) */}
         <div className="flex items-center gap-4 lg:hidden">
           <button
             onClick={() => {
@@ -137,84 +140,51 @@ const Navbar = ({ theme, toggleTheme }) => {
               trackEvent("User Interaction", "Theme Toggle", nextTheme);
               toggleTheme();
             }}
-            className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800"
+            className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 shadow-sm"
           >
             {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
-          </button>
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="text-neutral-900 dark:text-white p-2 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-colors"
-          >
-            <FaBars size={24} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/70 dark:bg-black/90 backdrop-blur-md z-[100] lg:hidden"
-            />
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={mobileMenuVariants}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white dark:bg-neutral-950 z-[110] shadow-2xl lg:hidden p-10 flex flex-col border-l border-neutral-200 dark:border-neutral-800"
-            >
-              <div className="flex justify-between items-center mb-10 px-2">
-                <Link
-                  to="/"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="flex items-center gap-1 group"
-                >
-                  <span className="text-3xl font-bold tracking-tighter text-neutral-900 dark:text-white">Pubudu</span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse"></span>
-                </Link>
-                <button onClick={() => setIsMobileMenuOpen(false)} className="text-neutral-500 dark:text-neutral-400 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full transition-colors">
-                  <FaTimes size={24} />
-                </button>
-              </div>
+      {/* Modern Mobile Bottom Navigation (Floating Dock) */}
+      <div className="lg:hidden fixed bottom-6 left-0 right-0 px-6 z-[120]">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }}
+          className="flex items-center justify-around py-4 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-2xl shadow-purple-500/10"
+        >
+          {MOBILE_NAV_LINKS.map((link) => {
+            const isActive = location.pathname + location.hash === link.href ||
+              (location.pathname === '/' && link.href === '/' && !location.hash);
 
-              <div className="flex flex-col gap-6 px-2">
-                {NAV_LINKS.map((link) => (
-                  <motion.div key={link.name}>
-                    <Link
-                      to={link.href}
-                      onClick={() => {
-                        trackEvent("Navigation", "Click", link.name);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      whileHover={{ x: 10 }}
-                      className="text-xl font-medium text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 tracking-wide transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-auto pt-8 border-t border-neutral-200 dark:border-neutral-900 px-2">
-                <p className="text-[10px] text-neutral-400 dark:text-neutral-500 uppercase tracking-[0.3em] mb-6 font-semibold">Social Connect</p>
-                <div className="flex items-center gap-8 text-xl text-neutral-600 dark:text-neutral-400">
-                  <a href="https://www.linkedin.com/in/prabashana-pubudu-a707b0230/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "LinkedIn")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaLinkedin /></a>
-                  <a href="https://github.com/Pubba2000Creation" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "GitHub")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaGithub /></a>
-                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "Facebook")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaFacebook /></a>
-                  <a href="https://medium.com/@prabashanapubudu" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "Medium")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaMedium /></a>
+            return (
+              <Link
+                key={link.name}
+                to={link.href}
+                onClick={() => trackEvent("Mobile Navigation", "Click", link.name)}
+                className="relative flex flex-col items-center gap-1 group"
+              >
+                <div className={`p-2 rounded-xl transition-all duration-300 ${isActive ? "text-purple-600 dark:text-purple-400 bg-purple-500/10" : "text-neutral-500 dark:text-neutral-400 hover:text-purple-500"}`}>
+                  <link.icon className="text-xl" />
                 </div>
-              </div>
-            </motion.div>
-          </>
-        )}
+                <span className={`text-[10px] font-semibold uppercase tracking-tighter ${isActive ? "text-purple-600 dark:text-purple-400" : "text-neutral-500 dark:text-neutral-400"}`}>
+                  {link.name}
+                </span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute -top-1 w-1 h-1 bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </motion.div>
+      </div>
+
+      <AnimatePresence>
       </AnimatePresence>
     </motion.nav>
   );
