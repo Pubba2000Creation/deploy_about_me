@@ -159,16 +159,16 @@ const Navbar = ({ theme, toggleTheme }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md z-[60] lg:hidden"
+              className="fixed inset-0 bg-black/70 dark:bg-black/90 backdrop-blur-md z-[100] lg:hidden"
             />
             <motion.div
               initial="closed"
               animate="open"
               exit="closed"
               variants={mobileMenuVariants}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white dark:bg-neutral-950 z-[70] shadow-2xl lg:hidden p-10 flex flex-col"
+              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white dark:bg-neutral-950 z-[110] shadow-2xl lg:hidden p-10 flex flex-col border-l border-neutral-200 dark:border-neutral-800"
             >
-              <div className="flex justify-between items-center mb-16 px-2">
+              <div className="flex justify-between items-center mb-10 px-2">
                 <Link
                   to="/"
                   onClick={() => {
@@ -185,7 +185,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-8 px-2">
+              <div className="flex flex-col gap-6 px-2">
                 {NAV_LINKS.map((link) => (
                   <motion.div key={link.name}>
                     <Link
@@ -195,7 +195,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                         setIsMobileMenuOpen(false);
                       }}
                       whileHover={{ x: 10 }}
-                      className="text-3xl font-thin text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 tracking-wide transition-colors"
+                      className="text-xl font-medium text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 tracking-wide transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -203,9 +203,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                 ))}
               </div>
 
-              <div className="mt-auto pt-12 border-t border-neutral-200 dark:border-neutral-900 px-2">
-                <p className="text-xs text-neutral-400 dark:text-neutral-500 uppercase tracking-[0.3em] mb-8 font-semibold">Social Connect</p>
-                <div className="flex items-center gap-8 text-2xl text-neutral-600 dark:text-neutral-400">
+              <div className="mt-auto pt-8 border-t border-neutral-200 dark:border-neutral-900 px-2">
+                <p className="text-[10px] text-neutral-400 dark:text-neutral-500 uppercase tracking-[0.3em] mb-6 font-semibold">Social Connect</p>
+                <div className="flex items-center gap-8 text-xl text-neutral-600 dark:text-neutral-400">
                   <a href="https://www.linkedin.com/in/prabashana-pubudu-a707b0230/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "LinkedIn")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaLinkedin /></a>
                   <a href="https://github.com/Pubba2000Creation" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "GitHub")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaGithub /></a>
                   <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "Facebook")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaFacebook /></a>
