@@ -36,3 +36,30 @@ export const trackEvent = (category, action, label, value) => {
     value,
   });
 };
+
+/**
+ * Fetches geolocation information for the current visitor.
+ * Uses ipapi.co (Free tier: 1000 requests/day, no key required for basic info).
+ */
+export const getVisitorGeoInfo = async () => {
+  try {
+    const response = await fetch("https://ipapi.co/json/");
+    const data = await response.json();
+    return {
+      ip: data.ip,
+      city: data.city,
+      region: data.region,
+      country: data.country_name,
+      ua: navigator.userAgent
+    };
+  } catch (error) {
+    console.warn("Unable to fetch visitor geo info:", error);
+    return {
+      ip: "Unknown",
+      city: "Unknown",
+      region: "Unknown",
+      country: "Unknown",
+      ua: navigator.userAgent
+    };
+  }
+};

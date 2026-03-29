@@ -9,12 +9,12 @@ const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div id="about" className="scroll-mt-24 border-b border-neutral-900 pb-16 pt-2">
+    <div id="about" className="scroll-mt-24 border-b border-neutral-200 dark:border-neutral-900 pb-16 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
-        className="mb-24 text-center text-5xl font-thin tracking-tight text-white"
+        className="mb-24 text-center text-5xl font-thin tracking-tight text-neutral-900 dark:text-white"
       >
         Engineering Journey & <span className="text-neutral-500">Expertise</span>
       </motion.h2>
@@ -33,9 +33,9 @@ const About = () => {
               <img
                 src={worksimg}
                 alt="Prabod Pubudu"
-                className="rounded-3xl shadow-2xl w-60 lg:w-72 border-2 border-neutral-800 transition-transform duration-500 group-hover:scale-105"
+                className="rounded-3xl shadow-2xl w-60 lg:w-72 border-2 border-neutral-200 dark:border-neutral-800 transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute -inset-4 bg-purple-500/20 blur-2xl -z-10 rounded-full"></div>
+              <div className="absolute -inset-4 bg-purple-500/10 dark:bg-purple-500/20 blur-2xl -z-10 rounded-full"></div>
             </div>
 
             {/* Secondary Image (Profile) - Overlapping */}
@@ -43,12 +43,12 @@ const About = () => {
               <img
                 src={aboutimg}
                 alt="Pubba Works"
-                className="rounded-3xl shadow-2xl w-40 lg:w-52 border-2 border-neutral-800 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
+                className="rounded-3xl shadow-2xl w-40 lg:w-52 border-2 border-neutral-200 dark:border-neutral-800 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
               />
-              <div className="absolute -inset-4 bg-blue-500/20 blur-xl -z-10 rounded-full"></div>
+              <div className="absolute -inset-4 bg-blue-500/10 dark:bg-blue-500/20 blur-xl -z-10 rounded-full"></div>
             </div>
           </div>
-          <p className="text-neutral-400 text-center text-sm lg:text-base max-w-sm leading-relaxed font-light italic mt-4">
+          <p className="text-neutral-600 dark:text-neutral-400 text-center text-sm lg:text-base max-w-sm leading-relaxed font-light italic mt-4">
             &quot;{ABOUT_TEXT.summary}&quot;
           </p>
         </motion.div>
@@ -65,10 +65,10 @@ const About = () => {
               <motion.div
                 key={index}
                 whileHover={{ x: 10 }}
-                className="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/30 backdrop-blur-sm"
+                className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/30 backdrop-blur-sm"
               >
-                <h3 className="text-blue-400 font-medium mb-2 text-lg">{pillar.title}</h3>
-                <p className="text-neutral-400 text-sm leading-relaxed font-light">
+                <h3 className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-lg">{pillar.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed font-light">
                   {pillar.description}
                 </p>
               </motion.div>
@@ -79,7 +79,7 @@ const About = () => {
           <div className="mt-10 flex flex-col items-center lg:items-start">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-neutral-300 border-b border-neutral-700 pb-1 hover:text-white hover:border-white transition-all text-sm uppercase tracking-widest font-medium"
+              className="text-neutral-600 border-b border-neutral-300 pb-1 hover:text-neutral-900 hover:border-neutral-900 dark:text-neutral-300 dark:border-neutral-700 dark:hover:text-white dark:hover:border-white transition-all text-sm uppercase tracking-widest font-medium"
             >
               {isExpanded ? "Show Less" : "Read Full Story"}
             </button>
@@ -93,7 +93,7 @@ const About = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <p className="mt-8 text-neutral-400 text-sm lg:text-base leading-loose font-light whitespace-pre-line border-l-2 border-neutral-800 pl-6">
+                  <p className="mt-8 text-neutral-600 dark:text-neutral-400 text-sm lg:text-base leading-loose font-light whitespace-pre-line border-l-2 border-neutral-200 dark:border-neutral-800 pl-6">
                     {ABOUT_TEXT.fullBio}
                   </p>
                 </motion.div>

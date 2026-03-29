@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import { getVisitorGeoInfo } from '../lib/analytics';
 
 const useViewCount = (projectId, shouldIncrement = false) => {
     const [views, setViews] = useState(0);
@@ -36,6 +37,23 @@ const useViewCount = (projectId, shouldIncrement = false) => {
                 // 2. Increment logic
                 if (shouldIncrement) {
                     console.log(`[ViewCount] 🚀 Attempting to INCREMENT for: ${projectId}`);
+
+                    // 🛠️ AUDIT: Log visitor details (IP/Location)
+                    // Note: Tracking full IPs requires sensitivity to privacy regulations (GDPR/CCPA).
+                    try {
+                        const geo = await getVisitorGeoInfo();
+                        await supabase.from('view_logs').insert([{
+                            project_id: projectId,
+                            ip_address: geo.ip,
+                            city: geo.city,
+                            region: geo.region,
+                            country: geo.country,
+                            user_agent: geo.ua
+                        }]);
+                        console.log(`[Audit] 📝 Visit logged from: ${geo.city}, ${geo.country}`);
+                    } catch (auditError) {
+                        console.warn(`[Audit] ⚠️ Failed to log visitor details:`, auditError.message);
+                    }
 
                     // Try Atomic RPC first
                     const { data: rpcCount, error: rpcError } = await supabase.rpc('increment_view_count', {

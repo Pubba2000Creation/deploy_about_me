@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRight, FaEye } from "react-icons/fa";
 import useViewCount from "../hooks/useViewCount";
 import PropTypes from "prop-types";
+import { trackEvent } from "../lib/analytics";
 
 const ProjectCard = ({ project, index }) => {
     const { views, formatViews } = useViewCount(project.id);
@@ -18,9 +19,9 @@ const ProjectCard = ({ project, index }) => {
             {/* Image Section */}
             <div className="w-full lg:w-1/2 relative">
                 {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-10 dark:opacity-20 group-hover:opacity-30 dark:group-hover:opacity-40 transition duration-500"></div>
 
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-800">
+                <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
                     <img
                         src={project.image}
                         alt={project.title}
@@ -28,16 +29,17 @@ const ProjectCard = ({ project, index }) => {
                     />
 
                     {/* View Count Badge */}
-                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 z-10 transition-opacity duration-300">
-                        <FaEye className="text-purple-400 text-sm" />
-                        <span className="text-white text-xs font-medium">{formatViews(views)}</span>
+                    <div className="absolute top-4 right-4 bg-white/70 dark:bg-black/60 backdrop-blur-md border border-neutral-200 dark:border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 z-10 transition-opacity duration-300 shadow-sm">
+                        <FaEye className="text-purple-600 dark:text-purple-400 text-sm" />
+                        <span className="text-neutral-900 dark:text-white text-xs font-medium">{formatViews(views)}</span>
                     </div>
 
                     {/* Overlay on Hover */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 dark:bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Link
                             to={`/project/${project.id}`}
-                            className="bg-white text-black px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-neutral-200"
+                            onClick={() => trackEvent("Project", "Click Details (Overlay)", project.title)}
+                            className="bg-white text-black px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-neutral-100"
                         >
                             View Details
                         </Link>
@@ -47,21 +49,21 @@ const ProjectCard = ({ project, index }) => {
 
             {/* Content Section */}
             <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h3 className="text-3xl font-semibold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-3xl font-semibold text-neutral-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     {project.title}
                 </h3>
-                <p className="mb-6 text-neutral-400 text-lg leading-relaxed max-w-xl">
+                <p className="mb-6 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed max-w-xl">
                     {project.description}
                 </p>
 
                 <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
                     {project.technologies.slice(0, 4).map((tech, i) => (
-                        <span key={i} className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-900 border border-neutral-800 text-purple-300">
+                        <span key={i} className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-purple-600 dark:text-purple-300">
                             {tech}
                         </span>
                     ))}
                     {project.technologies.length > 4 && (
-                        <span className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-900 border border-neutral-800 text-neutral-500">
+                        <span className="px-3 py-1 text-sm font-medium rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-500">
                             +{project.technologies.length - 4} more
                         </span>
                     )}
@@ -69,7 +71,8 @@ const ProjectCard = ({ project, index }) => {
 
                 <Link
                     to={`/project/${project.id}`}
-                    className="inline-flex items-center gap-2 text-white border-b border-purple-500 pb-1 hover:text-purple-400 transition-colors text-lg tracking-wide group/link"
+                    onClick={() => trackEvent("Project", "Click Case Study", project.title)}
+                    className="inline-flex items-center gap-2 text-neutral-900 dark:text-white border-b border-purple-500 pb-1 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-lg tracking-wide group/link"
                 >
                     Read Case Study
                     <FaArrowRight className="text-sm transform group-hover/link:translate-x-1 transition-transform" />
@@ -81,12 +84,12 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
     return (
-        <div id="projects" className="scroll-mt-24 border-b border-neutral-900 pb-20 px-4 sm:px-8">
+        <div id="projects" className="scroll-mt-24 border-b border-neutral-200 dark:border-neutral-900 pb-20 px-4 sm:px-8">
             <motion.h2
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}
                 transition={{ duration: 1 }}
-                className="my-20 text-center text-5xl text-white font-thin tracking-tight"
+                className="my-20 text-center text-5xl text-neutral-900 dark:text-white font-thin tracking-tight"
             >
                 Featured Projects
             </motion.h2>

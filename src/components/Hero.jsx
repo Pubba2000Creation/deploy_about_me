@@ -25,7 +25,7 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <div id="hero" className="scroll-mt-42 border-b border-neutral-900 pb-10 lg:mb-36 pt-20 px-4 sm:px-8">
+    <div id="hero" className="scroll-mt-42 border-b border-neutral-200 dark:border-neutral-900 pb-10 lg:mb-36 pt-20 px-4 sm:px-8">
       <div className="flex flex-wrap items-center">
         {/* Text Content */}
         <div className="w-full lg:w-3/5">
@@ -37,21 +37,21 @@ const Hero = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="pb-6 text-4xl font-extralight tracking-tight lg:text-7xl text-white text-center lg:text-left leading-tight"
+              className="pb-6 text-4xl font-extralight tracking-tight lg:text-7xl text-neutral-900 dark:text-white text-center lg:text-left leading-tight"
             >
               Prabod Pubudu
             </motion.h1>
 
             <motion.span
               variants={itemVariants}
-              className="bg-gradient-to-r from-pink-400 via-slate-500 to-purple-600
+              className="bg-gradient-to-r from-pink-600 via-slate-600 to-purple-800 dark:from-pink-400 dark:via-slate-500 dark:to-purple-600
                         bg-clip-text text-2xl lg:text-3xl tracking-tight text-transparent font-medium text-center lg:text-left mb-6"
             >
               Backend-Focused Full-Stack Engineer • AI Systems
             </motion.span>
 
             <motion.div variants={itemVariants} className="max-w-2xl px-2">
-              <p className="text-neutral-400 text-base lg:text-lg leading-relaxed text-center lg:text-left mb-8 whitespace-pre-line font-light">
+              <p className="text-neutral-600 dark:text-neutral-400 text-base lg:text-lg leading-relaxed text-center lg:text-left mb-8 whitespace-pre-line font-light">
                 {HERO_CONTENT}
               </p>
             </motion.div>
@@ -60,14 +60,14 @@ const Hero = () => {
             <motion.div variants={itemVariants} className="flex flex-col lg:flex-row items-center gap-6 mt-4">
               <a
                 href="#contact"
-                className="px-10 py-4 bg-white text-black rounded-full font-semibold hover:bg-neutral-200 transition-all shadow-xl shadow-white/5 whitespace-nowrap"
+                className="px-10 py-4 bg-neutral-900 text-white dark:bg-white dark:text-black rounded-full font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all shadow-xl shadow-purple-500/10 whitespace-nowrap"
               >
                 Let&apos;s Build Systems
               </a>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                <span className="px-4 py-1.5 border border-neutral-800 rounded-full text-neutral-400 text-sm bg-neutral-900/50">NestJS</span>
-                <span className="px-4 py-1.5 border border-neutral-800 rounded-full text-neutral-400 text-sm bg-neutral-900/50">Docker</span>
-                <span className="px-4 py-1.5 border border-neutral-800 rounded-full text-neutral-400 text-sm bg-neutral-900/50">AI Systems</span>
+                <span className="px-4 py-1.5 border border-neutral-200 dark:border-neutral-800 rounded-full text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-100 dark:bg-neutral-900/50">NestJS</span>
+                <span className="px-4 py-1.5 border border-neutral-200 dark:border-neutral-800 rounded-full text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-100 dark:bg-neutral-900/50">Docker</span>
+                <span className="px-4 py-1.5 border border-neutral-200 dark:border-neutral-800 rounded-full text-neutral-600 dark:text-neutral-400 text-sm bg-neutral-100 dark:bg-neutral-900/50">AI Systems</span>
               </div>
             </motion.div>
           </motion.div>
@@ -85,11 +85,11 @@ const Hero = () => {
               <img
                 src={profilepic}
                 alt="Prabod Pubudu"
-                className="rounded-3xl shadow-2xl shadow-purple-500/10 w-64 lg:w-[450px] border border-neutral-800 transition-all duration-1000"
+                className="rounded-3xl shadow-2xl shadow-purple-500/5 dark:shadow-purple-500/10 w-64 lg:w-[450px] border border-neutral-200 dark:border-neutral-800 transition-all duration-1000"
               />
             </motion.div>
             {/* Ambient Background Glow */}
-            <div className="absolute -inset-10 bg-gradient-to-tr from-purple-500/10 to-pink-500/10 blur-3xl opacity-40 animate-pulse"></div>
+            <div className="absolute -inset-10 bg-gradient-to-tr from-purple-500/5 to-pink-500/5 dark:from-purple-500/10 dark:to-pink-500/10 blur-3xl opacity-40 animate-pulse"></div>
           </div>
         </div>
       </div>

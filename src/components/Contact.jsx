@@ -10,15 +10,15 @@ const ContactInfo = ({ icon: Icon, text, label, subtext, href }) => {
   const content = (
     <motion.div
       whileHover={{ x: 10 }}
-      className="flex items-start gap-6 p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm hover:border-purple-500/30 transition-all group w-full"
+      className="flex items-start gap-6 p-6 rounded-2xl bg-neutral-50/50 dark:bg-neutral-900/30 border border-neutral-200 dark:border-neutral-800/50 backdrop-blur-sm hover:border-purple-500/30 dark:hover:border-purple-500/30 transition-all group w-full"
     >
-      <div className="p-4 bg-purple-500/10 rounded-xl text-purple-400 group-hover:scale-110 transition-transform">
+      <div className="p-4 bg-purple-500/10 rounded-xl text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
         <Icon className="text-2xl" />
       </div>
       <div>
-        <p className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-1">{label}</p>
-        <h3 className="text-lg font-light text-neutral-100">{text}</h3>
-        {subtext && <p className="text-xs text-neutral-500 mt-1 font-light">{subtext}</p>}
+        <p className="text-sm font-medium text-neutral-500 dark:text-neutral-500 uppercase tracking-widest mb-1">{label}</p>
+        <h3 className="text-lg font-light text-neutral-900 dark:text-neutral-100">{text}</h3>
+        {subtext && <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-1 font-light">{subtext}</p>}
       </div>
     </motion.div>
   );
@@ -79,7 +79,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="scroll-mt-24 mt-20 border-b border-neutral-900 pb-20 px-4 sm:px-6 lg:px-8">
+    <div id="contact" className="scroll-mt-24 mt-20 border-b border-neutral-200 dark:border-neutral-900 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,10 +87,10 @@ const Contact = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-thin tracking-tight text-white mb-4">
-            Let&apos;s Build <span className="text-purple-500">Something Great</span>
+          <h2 className="text-4xl lg:text-5xl font-thin tracking-tight text-neutral-900 dark:text-white mb-4">
+            Let&apos;s Build <span className="text-purple-600 dark:text-purple-500">Something Great</span>
           </h2>
-          <p className="text-neutral-400 font-light max-w-2xl mx-auto">
+          <p className="text-neutral-600 dark:text-neutral-400 font-light max-w-2xl mx-auto">
             Ready to collaborate on your next system? Whether it&apos;s a scalable backend, AI integration, or a full-stack project, let&apos;s connect.
           </p>
         </motion.div>
@@ -131,9 +131,9 @@ const Contact = () => {
               href={`mailto:${CONTACT.email}`}
             />
 
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/20 mt-10">
-              <h4 className="text-white font-medium mb-2">Looking for a technical consultant?</h4>
-              <p className="text-neutral-400 text-sm font-light">
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-600/10 to-blue-600/10 dark:from-purple-600/20 dark:to-blue-600/20 border border-purple-500/10 dark:border-purple-500/20 mt-10">
+              <h4 className="text-neutral-900 dark:text-white font-medium mb-2">Looking for a technical consultant?</h4>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm font-light">
                 I specialize in NestJS architectures, AI system pipelines, and Dockerized deployments. Let&apos;s discuss your technical roadmap.
               </p>
             </div>
@@ -144,10 +144,10 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="p-8 lg:p-10 rounded-3xl bg-neutral-900/40 border border-neutral-800/50 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+            className="p-8 lg:p-10 rounded-3xl bg-white dark:bg-neutral-900/40 border border-neutral-200 dark:border-neutral-800/50 backdrop-blur-xl shadow-2xl relative overflow-hidden"
           >
             {/* Background Glow for Form */}
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 blur-[100px] -z-10 rounded-full"></div>
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/5 dark:bg-purple-600/10 blur-[100px] -z-10 rounded-full"></div>
 
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <input type="hidden" name="title" value="Portfolio Message" />
@@ -158,7 +158,7 @@ const Contact = () => {
                   name="name"
                   required
                   placeholder="Your Name"
-                  className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
+                  className="w-full px-6 py-4 rounded-xl bg-neutral-50 dark:bg-neutral-950/50 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -171,7 +171,7 @@ const Contact = () => {
                   name="email"
                   required
                   placeholder="someone@example.com"
-                  className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
+                  className="w-full px-6 py-4 rounded-xl bg-neutral-50 dark:bg-neutral-950/50 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -184,7 +184,7 @@ const Contact = () => {
                   required
                   rows="4"
                   placeholder="How can I help you?"
-                  className="w-full px-6 py-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all resize-none"
+                  className="w-full px-6 py-4 rounded-xl bg-neutral-50 dark:bg-neutral-950/50 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-700 focus:border-purple-500/50 focus:outline-none transition-all resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 ></textarea>
@@ -195,7 +195,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all shadow-xl shadow-purple-900/20 disabled:opacity-70 group"
+                className="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all shadow-xl shadow-purple-900/10 dark:shadow-purple-900/20 disabled:opacity-70 group"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <FaPaperPlane className={`text-sm transform transition-transform ${isSubmitting ? 'translate-x-10 opacity-0' : 'group-hover:translate-x-1 group-hover:-translate-y-1'}`} />
