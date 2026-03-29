@@ -6,6 +6,7 @@ import { FaFilePdf, FaChartLine, FaRobot, FaMicroscope } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import useViewCount from '../hooks/useViewCount';
 import Navbar from '../components/Navbar';
+import { trackEvent } from '../lib/analytics';
 
 const ResearchImage = ({ src, title }) => (
     <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 hover:border-purple-500/50 transition-all duration-300 shadow-xl dark:shadow-2xl">
@@ -101,6 +102,7 @@ const ResearchDetails = ({ theme, toggleTheme }) => {
                                     href={paper.src}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackEvent("Research Publication", "View", `${item.title} - ${paper.title}`)}
                                     className="flex items-center gap-6 p-6 bg-neutral-50/50 dark:bg-neutral-900/40 border border-neutral-200 dark:border-neutral-800 rounded-2xl hover:bg-neutral-100 dark:hover:bg-neutral-800/60 hover:border-red-500/30 transition-all group shadow-sm hover:shadow-md"
                                 >
                                     <div className="p-4 bg-red-500/10 rounded-xl group-hover:scale-110 transition-transform border border-neutral-200 dark:border-transparent">

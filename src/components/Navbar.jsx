@@ -4,6 +4,7 @@ import { FaLinkedin, FaGithub, FaFacebook, FaMedium, FaBars, FaTimes } from "rea
 import { FiSun, FiMoon } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { trackEvent } from "../lib/analytics";
 
 const NAV_LINKS = [
   { name: "About", href: "/#about" },
@@ -78,6 +79,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <motion.div key={link.name} whileHover={{ y: -1 }}>
                   <Link
                     to={link.href}
+                    onClick={() => trackEvent("Navigation", "Click", link.name)}
                     className={`${isActive ? "text-purple-600 dark:text-purple-100" : "text-neutral-600 dark:text-neutral-200"} hover:text-purple-500 dark:hover:text-purple-400 transition-colors relative group py-2 font-medium`}
                   >
                     {link.name}
@@ -93,7 +95,11 @@ const Navbar = ({ theme, toggleTheme }) => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={toggleTheme}
+              onClick={() => {
+                const nextTheme = theme === 'dark' ? 'light' : 'dark';
+                trackEvent("User Interaction", "Theme Toggle", nextTheme);
+                toggleTheme();
+              }}
               className="p-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors border border-neutral-200 dark:border-neutral-800"
               aria-label="Toggle Theme"
             >
@@ -105,6 +111,7 @@ const Navbar = ({ theme, toggleTheme }) => {
               href="https://www.linkedin.com/in/prabashana-pubudu-a707b0230/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("Social Link", "Click", "LinkedIn")}
               className="text-neutral-700 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-white transition-colors text-xl"
             >
               <FaLinkedin />
@@ -114,6 +121,7 @@ const Navbar = ({ theme, toggleTheme }) => {
               href="https://github.com/Pubba2000Creation"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("Social Link", "Click", "GitHub")}
               className="text-neutral-700 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-white transition-colors text-xl"
             >
               <FaGithub />
@@ -124,7 +132,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         {/* Mobile Toggle & Mobile Theme Toggle */}
         <div className="flex items-center gap-4 lg:hidden">
           <button
-            onClick={toggleTheme}
+            onClick={() => {
+              const nextTheme = theme === 'dark' ? 'light' : 'dark';
+              trackEvent("User Interaction", "Theme Toggle", nextTheme);
+              toggleTheme();
+            }}
             className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800"
           >
             {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -178,7 +190,10 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <motion.div key={link.name}>
                     <Link
                       to={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => {
+                        trackEvent("Navigation", "Click", link.name);
+                        setIsMobileMenuOpen(false);
+                      }}
                       whileHover={{ x: 10 }}
                       className="text-3xl font-thin text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-400 tracking-wide transition-colors"
                     >
@@ -191,10 +206,10 @@ const Navbar = ({ theme, toggleTheme }) => {
               <div className="mt-auto pt-12 border-t border-neutral-200 dark:border-neutral-900 px-2">
                 <p className="text-xs text-neutral-400 dark:text-neutral-500 uppercase tracking-[0.3em] mb-8 font-semibold">Social Connect</p>
                 <div className="flex items-center gap-8 text-2xl text-neutral-600 dark:text-neutral-400">
-                  <a href="https://www.linkedin.com/in/prabashana-pubudu-a707b0230/" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaLinkedin /></a>
-                  <a href="https://github.com/Pubba2000Creation" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaGithub /></a>
-                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaFacebook /></a>
-                  <a href="https://medium.com/@prabashanapubudu" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaMedium /></a>
+                  <a href="https://www.linkedin.com/in/prabashana-pubudu-a707b0230/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "LinkedIn")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaLinkedin /></a>
+                  <a href="https://github.com/Pubba2000Creation" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "GitHub")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaGithub /></a>
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "Facebook")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaFacebook /></a>
+                  <a href="https://medium.com/@prabashanapubudu" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("Social Link", "Click", "Medium")} className="hover:text-neutral-900 dark:hover:text-white transition-colors"><FaMedium /></a>
                 </div>
               </div>
             </motion.div>

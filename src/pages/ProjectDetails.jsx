@@ -5,6 +5,7 @@ import { IoArrowBack, IoEyeSharp } from 'react-icons/io5';
 import useViewCount from '../hooks/useViewCount';
 import PropTypes from 'prop-types';
 import Navbar from '../components/Navbar';
+import { trackEvent } from '../lib/analytics';
 
 const ProjectDetails = ({ theme, toggleTheme }) => {
     const { id } = useParams();
@@ -155,6 +156,7 @@ const ProjectDetails = ({ theme, toggleTheme }) => {
                                     href={doc.src}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackEvent("Project Documentation", "View", `${project.title} - ${doc.title}`)}
                                     className="group flex flex-col p-6 bg-neutral-50/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:bg-white dark:hover:bg-neutral-800 hover:border-purple-500/50 transition-all duration-300 shadow-sm hover:shadow-md"
                                 >
                                     <div className="h-12 w-12 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors border border-neutral-200 dark:border-transparent">
