@@ -64,7 +64,7 @@ const TechIcon = ({ Icon, name, color, duration }) => (
     className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 backdrop-blur-sm min-w-[100px] shadow-sm dark:shadow-none transition-colors"
   >
     <Icon className={`text-5xl ${color}`} />
-    <span className="text-xs font-light text-neutral-600 dark:text-neutral-400">{name}</span>
+    <span className="text-xs font-medium text-neutral-800 dark:text-neutral-200">{name}</span>
   </motion.div>
 );
 
