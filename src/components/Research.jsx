@@ -4,6 +4,7 @@ import { FaFilePdf, FaArrowRight, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useViewCount from "../hooks/useViewCount";
 import PropTypes from "prop-types";
+import { trackEvent } from "../lib/analytics";
 
 const ResearchCard = ({ item, index }) => {
     const itemId = item.id || `research-${index}`;
@@ -53,6 +54,7 @@ const ResearchCard = ({ item, index }) => {
                         {item.id ? (
                             <Link
                                 to={`/research/${item.id}`}
+                                onClick={() => trackEvent("Research", "Click Analytics", item.title)}
                                 className="inline-flex items-center gap-2 px-8 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all shadow-lg shadow-purple-500/20 active:scale-95 group"
                             >
                                 View Research & Analytics
@@ -63,6 +65,7 @@ const ResearchCard = ({ item, index }) => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => trackEvent("Research", "Click External Paper", item.title)}
                                 className="inline-flex items-center gap-2 px-8 py-3 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-black rounded-xl font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all shadow-lg active:scale-95"
                             >
                                 Read Research Paper

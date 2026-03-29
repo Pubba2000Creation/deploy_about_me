@@ -10,6 +10,7 @@ import {
   SiHubspot
 } from "react-icons/si";
 import { AiOutlineScan } from "react-icons/ai";
+import { trackEvent } from "../lib/analytics";
 
 const CORE_TECH = [
   { Name: "NestJS", Icon: SiNestjs, Color: "text-red-500" },
@@ -65,6 +66,7 @@ const TechnologiesSummary = () => {
 
             <Link
               to="/technologies"
+              onClick={() => trackEvent("Navigation", "Click", "See All Technologies")}
               className="inline-flex items-center gap-3 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold transition-all shadow-xl shadow-purple-900/10 dark:shadow-purple-900/20 group"
             >
               See All Technologies

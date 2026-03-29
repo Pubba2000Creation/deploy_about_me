@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRight, FaEye } from "react-icons/fa";
 import useViewCount from "../hooks/useViewCount";
 import PropTypes from "prop-types";
+import { trackEvent } from "../lib/analytics";
 
 const ProjectCard = ({ project, index }) => {
     const { views, formatViews } = useViewCount(project.id);
@@ -37,6 +38,7 @@ const ProjectCard = ({ project, index }) => {
                     <div className="absolute inset-0 bg-black/40 dark:bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Link
                             to={`/project/${project.id}`}
+                            onClick={() => trackEvent("Project", "Click Details (Overlay)", project.title)}
                             className="bg-white text-black px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-neutral-100"
                         >
                             View Details
@@ -69,6 +71,7 @@ const ProjectCard = ({ project, index }) => {
 
                 <Link
                     to={`/project/${project.id}`}
+                    onClick={() => trackEvent("Project", "Click Case Study", project.title)}
                     className="inline-flex items-center gap-2 text-neutral-900 dark:text-white border-b border-purple-500 pb-1 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-lg tracking-wide group/link"
                 >
                     Read Case Study
