@@ -55,7 +55,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         : "py-6 bg-transparent"
         }`}
     >
-      <div className="max-w-7xl mx-auto pt-10 px-6 lg:px-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto pt-10 px-6 lg:px-12 items-center justify-between hidden lg:flex">
         {/* Brand Name as Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -147,40 +147,68 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       </div>
 
-      {/* Modern Mobile Bottom Navigation (Floating Dock) */}
-      <div className="lg:hidden fixed bottom-6 left-0 right-0 px-6 z-[120]">
+      {/* Modern Unified Mobile Bottom Control Center */}
+      <div className="lg:hidden fixed bottom-6 left-0 right-0 px-4 z-[120]">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }}
-          className="flex items-center justify-around py-4 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-2xl shadow-purple-500/10"
+          className="flex items-center justify-between px-4 py-2 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-2xl border border-neutral-200/50 dark:border-neutral-800/50 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_rgba(168,85,247,0.15)]"
         >
-          {MOBILE_NAV_LINKS.map((link) => {
-            const isActive = location.pathname + location.hash === link.href ||
-              (location.pathname === '/' && link.href === '/' && !location.hash);
+          {/* Brand Logo in Dock */}
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              trackEvent("Mobile Navigation", "Click", "Logo Home");
+            }}
+            className="flex flex-col items-center gap-0.5 group px-2"
+          >
+            <div className="relative">
+              <span className="text-xl font-bold tracking-tighter text-neutral-900 dark:text-white">P.</span>
+              <span className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+            </div>
+            <span className="text-[8px] font-bold uppercase text-neutral-400">Home</span>
+          </Link>
 
-            return (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={() => trackEvent("Mobile Navigation", "Click", link.name)}
-                className="relative flex flex-col items-center gap-1 group"
-              >
-                <div className={`p-2 rounded-xl transition-all duration-300 ${isActive ? "text-purple-600 dark:text-purple-400 bg-purple-500/10" : "text-neutral-500 dark:text-neutral-400 hover:text-purple-500"}`}>
-                  <link.icon className="text-xl" />
-                </div>
-                <span className={`text-[10px] font-semibold uppercase tracking-tighter ${isActive ? "text-purple-600 dark:text-purple-400" : "text-neutral-500 dark:text-neutral-400"}`}>
-                  {link.name}
-                </span>
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -top-1 w-1 h-1 bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.8)]"
-                  />
-                )}
-              </Link>
-            );
-          })}
+          <div className="h-8 w-[1px] bg-neutral-200 dark:bg-neutral-800 mx-1"></div>
+
+          {/* Nav Icons */}
+          <div className="flex items-center justify-around flex-1">
+            {MOBILE_NAV_LINKS.filter(l => l.name !== "Home" && l.name !== "Mail").map((link) => {
+              const isActive = location.pathname + location.hash === link.href;
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => trackEvent("Mobile Navigation", "Click", link.name)}
+                  className="relative flex flex-col items-center gap-1"
+                >
+                  <div className={`p-2 rounded-xl transition-all duration-300 ${isActive ? "text-purple-600 dark:text-purple-400 bg-purple-500/10" : "text-neutral-500 dark:text-neutral-400"}`}>
+                    <link.icon className="text-lg" />
+                  </div>
+                  <span className={`text-[8px] font-bold uppercase tracking-tighter ${isActive ? "text-purple-600 dark:text-purple-400" : "text-neutral-500 dark:text-neutral-400"}`}>
+                    {link.name}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="h-8 w-[1px] bg-neutral-200 dark:bg-neutral-800 mx-1"></div>
+
+          {/* Theme Toggle in Dock */}
+          <button
+            onClick={() => {
+              const nextTheme = theme === 'dark' ? 'light' : 'dark';
+              trackEvent("User Interaction", "Theme Toggle", nextTheme);
+              toggleTheme();
+            }}
+            className="p-3 rounded-2xl bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 shadow-inner"
+          >
+            {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
+          </button>
         </motion.div>
       </div>
 
