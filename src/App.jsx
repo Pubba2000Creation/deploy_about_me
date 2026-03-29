@@ -6,7 +6,7 @@ import ResearchDetails from './pages/ResearchDetails';
 import ExperiencePage from './pages/ExperiencePage';
 import ResearchPage from './pages/ResearchPage';
 import TechnologiesPage from './pages/TechnologiesPage';
-import { trackPageView, initGA } from './lib/analytics';
+import { trackPageView, initGA, trackVisitor } from './lib/analytics';
 
 const ScrollToHash = () => {
   const { hash } = useLocation();
@@ -36,6 +36,7 @@ const PageViewTracker = () => {
 const App = () => {
   useEffect(() => {
     initGA();
+    trackVisitor();
   }, []);
 
   const [theme, setTheme] = useState(() => {

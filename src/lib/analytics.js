@@ -1,4 +1,6 @@
 import ReactGA from "react-ga4";
+import { supabase } from "./supabaseClient";
+
 
 /**
  * Initializes Google Analytics with the Measurement ID from environment variables.
@@ -61,5 +63,25 @@ export const getVisitorGeoInfo = async () => {
       country: "Unknown",
       ua: navigator.userAgent
     };
+  }
+};
+
+/**
+ * Tracks the visitor by fetching geo info and logging it to Supabase.
+ */
+export const trackVisitor = async () => {
+  try {
+    const geo = await getVisitorGeoInfo();
+    const { error } = await supabase.from('visitor_logs').insert([{
+      ip_address: geo.ip,
+      city: geo.city,
+      region: geo.region,
+      country: geo.country,
+      user_agent: geo.ua
+    }]);
+    if (error) throw error;
+    console.log(`[Audit] 📝 Visitor logged from: ${geo.city || 'Unknown'}, ${geo.country || 'Unknown'}`);
+  } catch (error) {
+    console.warn(`[Audit] ⚠️ Failed to log visitor details:`, error.message);
   }
 };
