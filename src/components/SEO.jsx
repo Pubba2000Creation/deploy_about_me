@@ -28,6 +28,9 @@ const SEO = ({ title, description, name = "Prabod Pubudu", type = "website", ima
   const pageImage = image || `${siteUrl}/default-og.jpg`; 
   
   const finalSchema = schema || defaultSchema;
+  
+  // Prevent duplicate JSON-LD on Home page since it's already in index.html
+  const shouldRenderSchema = Boolean(schema || (title && title !== "Home"));
 
   return (
     <Helmet>
@@ -49,9 +52,11 @@ const SEO = ({ title, description, name = "Prabod Pubudu", type = "website", ima
       <meta name="twitter:image" content={pageImage} />
 
       {/* JSON-LD Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(finalSchema)}
-      </script>
+      {shouldRenderSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(finalSchema)}
+        </script>
+      )}
     </Helmet>
   );
 };
@@ -60,6 +65,7 @@ SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   name: PropTypes.string,
+  type: PropTypes.string,
   image: PropTypes.string,
   url: PropTypes.string,
   schema: PropTypes.object,
