@@ -47,17 +47,16 @@ export const EXPERIENCES = [
     year: "March 2026 - Present",
     role: "Software Engineer (AI/Full-Stack)",
     company: "Topex Trading Pty Ltd",
-    description: "Leading a six-person engineering team, working remotely from Sri Lanka across WMS (Warehouse Management System), PowerSale, and data scraper projects — building carrier integrations, multi-region deployments, and AI-assisted tooling.",
+    description: "AI & Full-Stack Engineer building production systems for a global e-commerce operation spanning AU, CA, and US markets. Core contributions include AI-assisted automation tooling, warehouse management systems, data pipelines for business intelligence, and third-party logistics integrations.",
     technologies: [
       "Python", 
       "Flask", 
       "Microsoft Dataverse", 
       "Azure App Service", 
-      "GitHub Actions", 
       "Electron.js", 
       "REST APIs", 
-      "AusPost API", 
-      "Aramex API"
+      "eCommerce APIs", 
+      "External APIs"
     ],
   },
   {
