@@ -44,7 +44,24 @@ export const ABOUT_TEXT = {
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
+    year: "March 2026 - Present",
+    role: "Software Engineer (AI/Full-Stack)",
+    company: "Topex Trading Pty Ltd",
+    description: "Leading a six-person engineering team, working remotely from Sri Lanka across WMS (Warehouse Management System), PowerSale, and data scraper projects — building carrier integrations, multi-region deployments, and AI-assisted tooling.",
+    technologies: [
+      "Python", 
+      "Flask", 
+      "Microsoft Dataverse", 
+      "Azure App Service", 
+      "GitHub Actions", 
+      "Electron.js", 
+      "REST APIs", 
+      "AusPost API", 
+      "Aramex API"
+    ],
+  },
+  {
+    year: "January 2025 - March 2026",
     role: "Freelance Backend / Full-Stack Engineer",
     company: "Independent",
     description: `Working as an independent software engineer delivering complete, production-ready solutions for clients. Responsible for system design, backend architecture, API development, database modeling, deployment, and project coordination.
