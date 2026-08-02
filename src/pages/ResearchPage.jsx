@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaMicroscope } from "react-icons/fa";
@@ -8,6 +9,7 @@ import Research from "../components/Research";
 const ResearchPage = ({ theme, toggleTheme }) => {
   return (
     <div className="container mx-auto px-10 pt-20 lg:pt-24 min-h-screen text-neutral-900 dark:text-neutral-300">
+      <SEO title="Research" description="Academic research and projects in AI, Machine Learning, and Software Engineering." />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10">

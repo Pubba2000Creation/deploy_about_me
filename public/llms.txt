@@ -1,0 +1,24 @@
+# Prabod Pubudu
+
+> Software Engineer & AI Engineer specializing in full-stack development and AI/ML systems (RAG, LangChain).
+
+## About
+Software Engineer with a strong AI/ML focus. Builds full-stack applications and AI-powered systems,
+including Retrieval-Augmented Generation (RAG) pipelines and LLM-integrated backends.
+
+## Core Skills
+- **AI/ML:** RAG (Retrieval-Augmented Generation), LangChain
+- **Backend:** Node.js, NestJS, Express, Python, Django, Flask, FastAPI, Ruby, Go
+- **Frontend:** React, Next.js, JavaScript, TypeScript
+
+## Links
+- Portfolio: https://pubbadev.cv
+- LinkedIn: https://linkedin.com/in/prabod-pubudu-a707b0230
+- GitHub: https://github.com/Pubba2000Creation
+
+## Pages
+- Home: https://pubbadev.cv/
+- About: https://pubbadev.cv/about
+- Projects: https://pubbadev.cv/projects
+- Research: https://pubbadev.cv/research
+- Experience: https://pubbadev.cv/experience

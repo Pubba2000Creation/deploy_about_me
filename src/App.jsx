@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Home from './pages/Home';
-import ProjectDetails from './pages/ProjectDetails';
-import ResearchDetails from './pages/ResearchDetails';
-import ExperiencePage from './pages/ExperiencePage';
-import ResearchPage from './pages/ResearchPage';
-import TechnologiesPage from './pages/TechnologiesPage';
+import React, { useEffect, useState, Suspense } from 'react';
 import { trackPageView, initGA, trackVisitor } from './lib/analytics';
+
+const Home = React.lazy(() => import('./pages/Home'));
+const ProjectDetails = React.lazy(() => import('./pages/ProjectDetails'));
+const ResearchDetails = React.lazy(() => import('./pages/ResearchDetails'));
+const ExperiencePage = React.lazy(() => import('./pages/ExperiencePage'));
+const ResearchPage = React.lazy(() => import('./pages/ResearchPage'));
+const TechnologiesPage = React.lazy(() => import('./pages/TechnologiesPage'));
 
 const ScrollToHash = () => {
   const { hash } = useLocation();
@@ -71,14 +72,20 @@ const App = () => {
       <Router>
         <ScrollToHash />
         <PageViewTracker />
-        <Routes>
-          <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
-          <Route path="/experience" element={<ExperiencePage theme={theme} toggleTheme={toggleTheme} />} />
-          <Route path="/research" element={<ResearchPage theme={theme} toggleTheme={toggleTheme} />} />
-          <Route path="/technologies" element={<TechnologiesPage theme={theme} toggleTheme={toggleTheme} />} />
-          <Route path="/project/:id" element={<ProjectDetails theme={theme} toggleTheme={toggleTheme} />} />
-          <Route path="/research/:id" element={<ResearchDetails theme={theme} toggleTheme={toggleTheme} />} />
-        </Routes>
+        <Suspense fallback={
+          <div className="flex min-h-screen items-center justify-center bg-white dark:bg-black">
+            <div className="h-16 w-16 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent"></div>
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
+            <Route path="/experience" element={<ExperiencePage theme={theme} toggleTheme={toggleTheme} />} />
+            <Route path="/research" element={<ResearchPage theme={theme} toggleTheme={toggleTheme} />} />
+            <Route path="/technologies" element={<TechnologiesPage theme={theme} toggleTheme={toggleTheme} />} />
+            <Route path="/project/:id" element={<ProjectDetails theme={theme} toggleTheme={toggleTheme} />} />
+            <Route path="/research/:id" element={<ResearchDetails theme={theme} toggleTheme={toggleTheme} />} />
+          </Routes>
+        </Suspense>
       </Router>
     </div>
   );

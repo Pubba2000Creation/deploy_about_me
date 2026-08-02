@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useParams, Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import { motion } from 'framer-motion';
@@ -22,6 +23,13 @@ const ProjectDetails = ({ theme, toggleTheme }) => {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500">
+            <SEO 
+                title={project.title} 
+                description={project.description} 
+                image={project.image}
+                url={`https://pubbadev.cv/project/${project.id}`}
+                type="article"
+            />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <div className="container mx-auto px-4 py-24 text-neutral-700 dark:text-neutral-300">
                 {/* Back Navigation */}

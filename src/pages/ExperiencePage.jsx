@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -9,6 +10,7 @@ import Contact from "../components/Contact";
 const ExperiencePage = ({ theme, toggleTheme }) => {
   return (
     <div className="container mx-auto px-10 pt-20 lg:pt-24 min-h-screen text-neutral-900 dark:text-neutral-300">
+      <SEO title="Experience" description="Professional experience and work history as a Software Engineer." />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
