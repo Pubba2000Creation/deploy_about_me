@@ -44,7 +44,25 @@ export const ABOUT_TEXT = {
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
+    year: "March 2026 - Present",
+    role: "AI Engineer",
+    company: "Topex Trading Pty Ltd",
+    description: "AI Engineer building RAG-based systems and AI-driven decision automation for a global e-commerce operation spanning AU, CA, and US markets. Core work includes LangChain-powered pipelines, intelligent process automation, warehouse management systems, and data-driven business intelligence.",
+    technologies: [
+      "Python", 
+      "Flask", 
+      "LangChain", 
+      "RAG", 
+      "Microsoft Dataverse", 
+      "Azure App Service", 
+      "GitHub Actions", 
+      "Electron.js", 
+      "REST APIs", 
+      "Logistics APIs"
+    ],
+  },
+  {
+    year: "January 2025 - March 2026",
     role: "Freelance Backend / Full-Stack Engineer",
     company: "Independent",
     description: `Working as an independent software engineer delivering complete, production-ready solutions for clients. Responsible for system design, backend architecture, API development, database modeling, deployment, and project coordination.
