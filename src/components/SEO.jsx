@@ -20,6 +20,26 @@ const SEO = ({ title, description, name = "Prabod Pubudu", type = "website" }) =
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Prabod Pubudu",
+          "jobTitle": "Software Engineer / AI Engineer",
+          "url": "https://pubbadev.cv",
+          "sameAs": [
+            "https://linkedin.com/in/prabod-pubudu-a707b0230",
+            "https://github.com/Pubba2000Creation"
+          ],
+          "knowsAbout": [
+            "Artificial Intelligence", "Machine Learning", "RAG", "LangChain",
+            "Node.js", "NestJS", "Express", "Python", "Django", "Flask", "FastAPI",
+            "Ruby", "Go", "React", "Next.js", "TypeScript"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 };
