@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Hero from '../components/Hero';
@@ -12,6 +13,7 @@ import PropTypes from 'prop-types';
 const Home = ({ theme, toggleTheme }) => {
     return (
         <div className="container mx-auto px-10 pt-20 lg:pt-24 min-h-screen">
+            <SEO title="Home" />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Hero />
             <About />

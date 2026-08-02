@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useParams, Link } from 'react-router-dom';
 import { RESEARCH } from '../constants';
 import { motion } from 'framer-motion';
@@ -41,6 +42,7 @@ const ResearchDetails = ({ theme, toggleTheme }) => {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500">
+            <SEO title={item.title} description={item.description} />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <div className="container mx-auto px-4 py-24 text-neutral-700 dark:text-neutral-300">
                 {/* Back Navigation */}
