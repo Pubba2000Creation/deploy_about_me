@@ -42,7 +42,20 @@ const ResearchDetails = ({ theme, toggleTheme }) => {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500">
-            <SEO title={item.title} description={item.description} />
+            <SEO 
+                title={item.title} 
+                description={item.description} 
+                image={item.image}
+                url={`https://pubbadev.cv/research/${item.id}`}
+                type="article"
+                schema={{
+                    '@context': 'https://schema.org',
+                    '@type': 'ScholarlyArticle',
+                    headline: item.title,
+                    author: { '@type': 'Person', name: 'Prabod Pubudu' },
+                    url: `https://pubbadev.cv/research/${item.id}`,
+                }}
+            />
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <div className="container mx-auto px-4 py-24 text-neutral-700 dark:text-neutral-300">
                 {/* Back Navigation */}
